@@ -43,7 +43,7 @@ jobs:
         
     - name: Set Permissions 
       run: | 
-        sudo chown -R ubuntu:www-data /var/www/html/staging/juanflix-desktop 
+        sudo chown -R ${{ secrets.AWS_USER }}:www-data /var/www/html/staging/juanflix-desktop 
         
     - name: Run Remote/Arisan Commands
       uses: appleboy/ssh-action@v0.1.6
