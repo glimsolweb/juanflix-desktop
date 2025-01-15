@@ -41,10 +41,6 @@ jobs:
         REMOTE_USER: ${{ secrets.AWS_USER }}
         TARGET: "/var/www/html/staging/juanflix-desktop"
         
-    - name: Set Permissions 
-      run: | 
-        sudo chown -R www-data:www-data /var/www/html/staging/juanflix-desktop 
-        
     - name: Run Remote/Arisan Commands
       uses: appleboy/ssh-action@v0.1.6
       with:
@@ -52,6 +48,7 @@ jobs:
         username: ${{ secrets.AWS_USER }}
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         script: |
+          sudo chown -R www-data:www-data /var/www/html
           cd /var/www/html/staging/juanflix-desktop
           php artisan migrate --force
           php artisan optimize
