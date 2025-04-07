@@ -37,8 +37,8 @@ class GenreResource extends Resource
         return $table
             ->columns([
                 //
-                TextColumn::make('name')
-                    ->label('Genre Name')
+                // TextColumn::make('name')
+                //     ->label('Genre Name')
             ])
             ->filters([
                 //
