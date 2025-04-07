@@ -22,6 +22,7 @@ export default {
                 'jf-white2' : '#E2E2E2',
                 'jf-black' : '#000000',
                 'jf-yellow' : '#FFC300',
+                'jf-gray' : '#737373',
             }
         },
     },

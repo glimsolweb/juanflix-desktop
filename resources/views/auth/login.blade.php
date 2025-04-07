@@ -21,11 +21,11 @@
                 @csrf
 
                 <div>
-                    <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" placeholder="Email Address" />
+                    <x-input id="email" class="block mt-1 w-full bg-jf-black" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" placeholder="Email Address" />
                 </div>
 
                 <div class="mt-4">
-                    <x-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="current-password" placeholder="Password" />
+                    <x-input id="password" class="block mt-1 w-full bg-jf-black" type="password" name="password" required autocomplete="current-password" placeholder="Password" />
                 </div>
 
                 <div class="flex items-center justify-between my-4 items-center">
@@ -46,6 +46,15 @@
                 <x-button class="ms-4">
                     {{ __('LOG IN') }}
                 </x-button>
+                <flux:separator class="my-[30px]" text="Or" />
+                <div class="flex flex-col flex-wrap gap-y-[10px]">
+                    <button class="flex items-center justify-center gap-x-[10px] w-full border py-[8px] px-[20px] rounded-[5px]" type="button"><x-juanflix.facebook-svg /> Continue with Facebook</button>
+                    <button class="flex items-center justify-center gap-x-[10px] w-full border py-[8px] px-[20px] rounded-[5px]" type="button"><x-juanflix.google-svg /> Continue with Google</button>
+                </div>
+                <div class="flex flex-row justify-center gap-x-[10px] mt-[50px]">
+                    <p>Don't have an account? </p>
+                    <a href="{{ route('register') }}" class="underline text-jf-yellow">Sign up</a>
+                </div>
             </form>
         </div>
     </x-juanflix.header>

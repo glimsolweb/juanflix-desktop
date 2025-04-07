@@ -19,10 +19,10 @@
         @livewireStyles
     </head>
     <body>
-        <div class="font-sans text-gray-900 antialiased bg-body-black h-[900px]">
+        <div class="font-sans text-gray-900 antialiased bg-body-black">
             {{ $slot }}
+            @include('layouts.guest.footer')
         </div>
-
         @livewireScripts
     </body>
 </html>
