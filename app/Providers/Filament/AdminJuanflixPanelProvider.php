@@ -27,6 +27,7 @@ class AdminJuanflixPanelProvider extends PanelProvider
             ->id('admin-juanflix')
             ->path('admin-juanflix')
             ->login()
+            ->brandLogo(asset('images/juanflix-white-logo.svg'))
             ->colors([
                 'primary' => Color::Amber,
             ])

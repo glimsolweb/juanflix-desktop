@@ -13,11 +13,14 @@ use Filament\Forms\Components\Grid;
 use App\Filament\Clusters\FilmCluster;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\DatePicker;
+use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\RichEditor;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use App\Filament\Resources\Admin\FilmResource\Pages;
 use App\Filament\Resources\Admin\FilmResource\RelationManagers;
+use Filament\Tables\Columns\ImageColumn;
+use Filament\Tables\Columns\TextColumn;
 
 class FilmResource extends Resource
 {
@@ -45,8 +48,12 @@ class FilmResource extends Resource
                         ->columnSpanFull(),
                     TextInput::make('src')
                         ->label('JW Player src'),
-                    TextInput::make('trailer')
+                    TextInput::make('trailer_src')
                         ->label('JW Player trailer'),
+                    FileUpload::make('poster')
+                        ->label('Poster'),
+                    FileUpload::make('thumbnail')
+                        ->label('Thumbnail'),
                 ])
             ]);
     }
@@ -56,6 +63,12 @@ class FilmResource extends Resource
         return $table
             ->columns([
                 //
+                TextColumn::make('title')
+                    ->label('Title'),
+                ImageColumn::make('thumbnail')
+                    ->label('Thumbnail'),
+                ImageColumn::make('poster')
+                    ->label('Poster')
             ])
             ->filters([
                 //

@@ -3,7 +3,7 @@
         <x-slot name="logo">
             <x-authentication-card-logo />
         </x-slot>
-        <div class="md:w-[500px] w-full m-auto my-[20px] md:my-[50px]">
+        <div class="md:w-[550px] w-full m-auto my-[20px] md:my-[50px]">
             <div class="flex flex-col items-center">
                 <h1 class="font-bold text-[2.5rem] text-jf-yellow">Sign In</h1>
                 <p class="text-jf-white2 mb-[50px]">Log in quickly using your preferred method.</p>
@@ -28,7 +28,7 @@
                     <x-input id="password" class="block mt-1 w-full bg-jf-black" type="password" name="password" required autocomplete="current-password" placeholder="Password" />
                 </div>
 
-                <div class="flex items-center justify-between my-4 items-center">
+                <div class="flex items-center justify-between my-4">
                     <div class="block">
                         <label for="remember_me" class="flex items-center">
                             <x-checkbox id="remember_me" name="remember" />
