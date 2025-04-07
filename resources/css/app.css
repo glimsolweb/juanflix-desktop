@@ -5,3 +5,14 @@
 [x-cloak] {
     display: none;
 }
+
+/* Juaflix Custom CSS Desktop */
+
+/* Global CSS */
+*, html{ color: white;}
+
+.bg-body-black{
+    background-image: url('../../public/images/bg-black.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
