@@ -19,6 +19,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use App\Filament\Resources\Admin\FilmResource\Pages;
 use App\Filament\Resources\Admin\FilmResource\RelationManagers;
+use Filament\Forms\Components\CheckboxList;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 
@@ -36,24 +37,44 @@ class FilmResource extends Resource
                 Grid::make(2)
                 ->schema([
                     TextInput::make('title')
-                        ->label('Title'),
+                        ->label('Title')
+                        ->required(),
                     DatePicker::make('release_at')
-                        ->label('Release At'),
+                        ->label('Release At')
+                        ->required(),
                     TextInput::make('duration')
-                        ->label('Duration'),
+                        ->label('Duration')
+                        ->required(),
                     TextInput::make('rating')
-                        ->label('Rating'),
+                        ->label('Rating')
+                        ->required(),
                     RichEditor::make('description')
                         ->label('Description')
                         ->columnSpanFull(),
                     TextInput::make('src')
-                        ->label('JW Player src'),
+                        ->label('JW Player src')
+                        ->required(),
                     TextInput::make('trailer_src')
-                        ->label('JW Player trailer'),
+                        ->label('JW Player trailer')
+                        ->required(),
                     FileUpload::make('poster')
-                        ->label('Poster'),
+                        ->label('Poster')
+                        ->directory('uploaded-files')
+                        ->image()
+                        ->maxSize(2048)
+                        ->required(),
                     FileUpload::make('thumbnail')
-                        ->label('Thumbnail'),
+                        ->label('Thumbnail')
+                        ->directory('uploaded-files')
+                        ->image()
+                        ->maxSize(2048)
+                        ->required(),
+                    CheckboxList::make('genres')
+                        ->label('Genre')
+                        ->relationship('genres', 'name')
+                        ->searchable()
+                        ->columns(4)
+                        ->columnSpanFull()
                 ])
             ]);
     }
