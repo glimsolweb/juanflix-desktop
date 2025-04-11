@@ -17,6 +17,18 @@ class GoogleController extends SocialiteController
     public function googleCallBack()
     {
         $user = Socialite::driver('google')->user();
+        $this->userFields($user);
         dd($user);
+    }
+
+    public function userFields($user)
+    {
+        $user_fields = [
+            'name' => $user->name,
+            'email' => $user->email,
+            'password' => null,
+            'password_confirmation' => null,
+            'terms' => true,
+        ];
     }
 }

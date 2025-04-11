@@ -34,8 +34,10 @@ class UserFactory extends Factory
             'two_factor_secret' => null,
             'two_factor_recovery_codes' => null,
             'remember_token' => Str::random(10),
-            'profile_photo_path' => null,
+            'profile_photo_path' => fake()->imageUrl(),
             'current_team_id' => null,
+            'provider' => $this->faker->randomElement(['google', 'facebook']),
+            'provider_id' => $this->faker->numberBetween(1000000, 9999999)
         ];
     }
 
