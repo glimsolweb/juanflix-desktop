@@ -1,10 +1,14 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\User\UserController;
 
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+Route::get('usercreate', [UserController::class, 'createUser']);
 
 Route::middleware([
     'auth:sanctum',
