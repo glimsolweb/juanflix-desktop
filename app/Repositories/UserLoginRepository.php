@@ -18,4 +18,9 @@ class UserLoginRepository
             'token' => $token
         ]);
     }
+
+    public function existingUser($user)
+    {
+        return User::where('email', $user->email)->first();
+    }
 }
