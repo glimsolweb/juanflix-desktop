@@ -32,7 +32,7 @@ class UserLoginRepository
         ]);
 
         Auth::login($user);
-        return redirect()->route('welcome');
+        return redirect('/welcome');
     }
 
     public function existingUser($email)
