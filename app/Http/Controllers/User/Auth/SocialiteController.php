@@ -22,7 +22,7 @@ class SocialiteController extends Controller
         if($exist_user)
         {
             Auth::login($exist_user);
-            return redirect('/welcome');
+            return redirect()->route('homepage');
         }else{
             $new_user = $this->UserLoginRepository->createNewUser($user, $provider);
         }
