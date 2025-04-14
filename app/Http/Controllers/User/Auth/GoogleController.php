@@ -18,5 +18,6 @@ class GoogleController extends SocialiteController
     {
         $user = Socialite::driver('google')->user();
         $this->createOrUpdateUser($user, 'google');
+        return redirect()->route('homepage');
     }
 }
