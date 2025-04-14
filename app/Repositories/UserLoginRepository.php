@@ -22,7 +22,7 @@ class UserLoginRepository
 
     public function createNewUser($user, $provider)
     {
-        User::create([
+        $created_user = User::create([
             'name' => $user->name,
             'email' => $user->email,
             'password' => null,
@@ -31,7 +31,7 @@ class UserLoginRepository
             'provider_id' => $user->id,
         ]);
 
-        Auth::login($user);
+        Auth::login($created_user);
         return redirect('/welcome');
     }
 
