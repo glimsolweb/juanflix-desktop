@@ -19,8 +19,16 @@ class UserLoginRepository
         ]);
     }
 
-    public function existingUser($user)
+    public function createNewUser($user)
     {
-        return User::where('email', $user->email)->first();
+        dd($user);
+        // return User::create([
+        //     'name' => $user->name,
+        // ]);
+    }
+
+    public function existingUser($email)
+    {
+        return User::where('email', $email)->first();
     }
 }
