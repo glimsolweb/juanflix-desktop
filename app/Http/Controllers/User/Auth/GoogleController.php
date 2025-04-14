@@ -17,6 +17,6 @@ class GoogleController extends SocialiteController
     public function googleCallBack()
     {
         $user = Socialite::driver('google')->user();
-        $this->createOrUpdateUser($user);
+        $this->createOrUpdateUser($user, 'google');
     }
 }
