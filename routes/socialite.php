@@ -6,5 +6,7 @@ use App\Http\Controllers\User\Auth\SocialiteController;
 use Illuminate\Support\Facades\Route;
 use Laravel\Socialite\Facades\Socialite;
 
-Route::get('/auth/google/redirect', [GoogleController::class, 'googleAuth'])->name('google.auth');
-Route::get('/auth/google/callback', [GoogleController::class, 'googleCallBack'])->name('google.callback');
+Route::group(['middleware' => ['web']], function () {
+    Route::get('/auth/google/redirect', [GoogleController::class, 'googleAuth'])->name('google.auth');
+    Route::get('/auth/google/callback', [GoogleController::class, 'googleCallBack'])->name('google.callback');
+});
