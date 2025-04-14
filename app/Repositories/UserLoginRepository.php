@@ -32,7 +32,6 @@ class UserLoginRepository
         ]);
 
         Auth::login($created_user);
-        return redirect()->route('homepage');
     }
 
     public function existingUser($email)
