@@ -5,8 +5,7 @@ use App\Http\Controllers\User\UserController;
 
 Route::get('/', function () {
     return view('welcome');
-});
-
+})->name('homepage');
 
 Route::get('usercreate', [UserController::class, 'createUser']);
 
