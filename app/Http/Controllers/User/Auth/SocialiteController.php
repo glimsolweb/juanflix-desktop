@@ -15,7 +15,7 @@ class SocialiteController extends Controller
         $this->UserLoginRepository = $user_login_repository;
     }
 
-    public function createOrUpdateUser($user)
+    public function createOrUpdateUser($user, $provider)
     {
         $exist_user = $this->UserLoginRepository->existingUser($user->email);
 
@@ -24,7 +24,7 @@ class SocialiteController extends Controller
             Auth::login($exist_user);
             return redirect()->route('welcome');
         }else{
-            $new_user = $this->UserLoginRepository->createNewUser($user);
+            $new_user = $this->UserLoginRepository->createNewUser($user, $provider);
         }
     }
 }

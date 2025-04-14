@@ -3,6 +3,7 @@
 namespace App\Repositories;
 
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class UserLoginRepository
 {
@@ -19,12 +20,19 @@ class UserLoginRepository
         ]);
     }
 
-    public function createNewUser($user)
+    public function createNewUser($user, $provider)
     {
-        dd($user);
-        // return User::create([
-        //     'name' => $user->name,
-        // ]);
+        User::create([
+            'name' => $user->name,
+            'email' => $user->email,
+            'password' => null,
+            'profile_photo_path' => $user->avatar,
+            'provider' => $provider,
+            'provider_id' => $user->id,
+        ]);
+
+        Auth::login($user);
+        return redirect()->route('welcome');
     }
 
     public function existingUser($email)
