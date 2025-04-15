@@ -55,9 +55,9 @@
 
                 <flux:separator class="my-[30px]" text="Or" />
                 <div class="flex flex-row flex-wrap gap-[10px]">
-                    <button class="flex items-center justify-center gap-x-[10px] w-full md:w-[calc(50%-5px)] border py-[8px] px-[20px] rounded-[5px]" type="button"><x-juanflix.facebook-svg /> Continue with Facebook</button>
-                    <button class="flex items-center justify-center gap-x-[10px] w-full md:w-[calc(50%-5px)] border py-[8px] px-[20px] rounded-[5px]" type="button"><x-juanflix.google-svg /> Continue with Google</button>
-                    <button class="flex items-center justify-center gap-x-[10px] w-full border py-[8px] px-[20px] rounded-[5px]" type="button"><x-juanflix.apple-svg /> Continue with Apple ID</button>
+                    <a href="#" class="flex items-center justify-center gap-x-[10px] w-full md:w-[calc(50%-5px)] border py-[8px] px-[20px] rounded-[5px]" type="button"><x-juanflix.facebook-svg /> Continue with Facebook</a>
+                    <a href="{{ route('social.google.auth') }}" class="flex items-center justify-center gap-x-[10px] w-full md:w-[calc(50%-5px)] border py-[8px] px-[20px] rounded-[5px]" type="button"><x-juanflix.google-svg /> Continue with Google</a>
+                    <a href="#" class="flex items-center justify-center gap-x-[10px] w-full border py-[8px] px-[20px] rounded-[5px]" type="button"><x-juanflix.apple-svg /> Continue with Apple ID</a>
                 </div>
                 <div class="flex flex-row justify-center gap-x-[10px] mt-[50px]">
                     <p>Already have an account? </p>

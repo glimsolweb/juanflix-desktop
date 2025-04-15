@@ -1,5 +1,5 @@
 <div>
-    <div class="md:container max-w-sm mx-auto">
+    <div class="md:container max-w-sm mx-auto px-[30px]">
         <div class="flex py-5 items-center">
             {{ $logo }}
             @if (request()->routeIs('login'))
