@@ -74,6 +74,12 @@ class FilmResource extends Resource
                         ->relationship('genres', 'name')
                         ->searchable()
                         ->columns(4)
+                        ->columnSpanFull(),
+                    CheckboxList::make('categories')
+                        ->label('Categories')
+                        ->relationship('categories', 'name')
+                        ->searchable()
+                        ->columns(4)
                         ->columnSpanFull()
                 ])
             ]);
