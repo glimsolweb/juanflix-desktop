@@ -9,10 +9,58 @@
 /* Juaflix Custom CSS Desktop */
 
 /* Global CSS */
-*, html{ color: white;}
+*, html{ color: white; font-family: 'CreatoDisplay-Regular';}
+
+/* CreatoDisplay Font */
+@font-face {
+    font-family: 'CreatoDisplay-Bold';
+    src: url('../../public/fonts/CreatoDisplay/CreatoDisplay-Bold.otf');
+    font-display: swap;
+}
+@font-face {
+    font-family: 'CreatoDisplay-ExtraBold';
+    src: url('../../public/fonts/CreatoDisplay/CreatoDisplay-ExtraBold.otf');
+    font-display: swap;
+}
+@font-face {
+    font-family: 'CreatoDisplay-Medium';
+    src: url('../../public/fonts/CreatoDisplay/CreatoDisplay-Medium.otf');
+    font-display: swap;
+}
+@font-face {
+    font-family: 'CreatoDisplay-Regular';
+    src: url('../../public/fonts/CreatoDisplay/CreatoDisplay-Regular.otf');
+    font-display: swap;
+}
 
 .bg-body-black{
     background-image: url('../../public/images/bg-black.png');
     background-size: cover;
     background-repeat: no-repeat;
+}
+
+.bg-hero{
+    background-image: url('../../public/images/bg-hero.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.transparent-btn{
+    -webkit-transition: all ease 1s;
+    -moz-transition: all ease 1s;
+    transition: all ease 1s;
+    @apply border border-jf-yellow rounded-[5px];
+}
+.transparent-btn i{
+    -webkit-transition: all ease 1s;
+    -moz-transition: all ease 1s;
+    transition: all ease 1s;
+}
+
+.transparent-btn:hover i{
+    @apply text-jf-black;
+}
+.transparent-btn:hover{
+    box-shadow: inset 350px 0 0 0 #FFC300;
+    @apply text-jf-black;
 }
