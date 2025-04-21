@@ -16,6 +16,10 @@ export default {
         extend: {
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
+                CreatoDisplayBold: ['CreatoDisplay-Bold', 'sans-serif'],
+                CreatoDisplayExtraBold: ['CreatoDisplay-ExtraBold', 'sans-serif'],
+                CreatoDisplayMedium: ['CreatoDisplay-Medium', 'sans-serif'],
+                CreatoDisplayRegular: ['CreatoDisplay-Regular', 'sans-serif'],
             },
             colors: {
                 'jf-white' : '#ffffff',
@@ -23,6 +27,7 @@ export default {
                 'jf-black' : '#000000',
                 'jf-yellow' : '#FFC300',
                 'jf-gray' : '#737373',
+                'jf-gray-transparent' : '#262626B3',
             }
         },
     },

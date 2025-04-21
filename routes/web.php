@@ -3,8 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\User\UserController;
 
+// Public Route
 Route::get('/', function () {
-    return view('welcome');
+    return view('layouts.guest.landing.homepage');
 })->name('homepage');
 
 Route::get('usercreate', [UserController::class, 'createUser']);
