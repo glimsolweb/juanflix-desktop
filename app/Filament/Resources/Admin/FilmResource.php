@@ -92,10 +92,10 @@ class FilmResource extends Resource
                 //
                 TextColumn::make('title')
                     ->label('Title'),
+                ImageColumn::make('poster')
+                    ->label('Poster'),
                 ImageColumn::make('thumbnail')
                     ->label('Thumbnail'),
-                ImageColumn::make('poster')
-                    ->label('Poster')
             ])
             ->filters([
                 //

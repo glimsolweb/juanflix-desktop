@@ -4,16 +4,20 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Services\FilmService;
 
 class Film extends Controller
 {
+    private $FilmService;
+    public function __construct(FilmService $film_service) {
+        $this->FilmService = $film_service;
+    }
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
-        return ;
+        return $this->FilmService->showFilmsOnAPI();
     }
 
     /**
