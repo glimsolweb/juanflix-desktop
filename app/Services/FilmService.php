@@ -16,4 +16,9 @@ class FilmService
     {
         return $this->FilmRepository->getAllFilms();
     }
+
+    public function fetchFilmByID(String $id)
+    {
+        return $this->FilmRepository->getFilm($id);
+    }
 }
