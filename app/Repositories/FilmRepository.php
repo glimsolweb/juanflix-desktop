@@ -12,8 +12,9 @@ class FilmRepository
         return response()->json($films, 200);
     }
 
-    public function getFilm()
+    public function getFilm(String $id)
     {
-
+        $films = Film::with(['genres','categories'])->where('id',$id)->get();
+        return $films;
     }
 }

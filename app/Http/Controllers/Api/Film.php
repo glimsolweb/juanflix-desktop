@@ -33,7 +33,9 @@ class Film extends Controller
      */
     public function show(string $id)
     {
-        //
+        // Show specific film by id
+        return $this->FilmService->fetchFilmByID($id);
+
     }
 
     /**
