@@ -35,7 +35,6 @@ class Film extends Controller
     {
         // Show specific film by id
         return $this->FilmService->fetchFilmByID($id);
-
     }
 
     /**
@@ -52,5 +51,10 @@ class Film extends Controller
     public function destroy(string $id)
     {
         //
+    }
+
+    public function filmByGenre(string $genre)
+    {
+        return $this->FilmService->showFilmByGenre($genre);
     }
 }
