@@ -13,15 +13,21 @@ class FilmRepository
         return $films;
     }
 
-    public function getFilm(String $id)
+    public function getFilm(string $id)
     {
         $films = Film::with(['genres','categories'])->where('id',$id)->get();
         return $films;
     }
 
-    public function getFilmByGenre(String $genre)
+    public function getFilmByGenre(string $genre)
     {
         $films = Genre::where('name', $genre)->with('films')->firstOrFail();
+        return $films;
+    }
+
+    public function getFilmByGenreID(array $genre_id)
+    {
+        $films = Genre::whereIn('id', $genre_id)->with('films')->get();
         return $films;
     }
 }
