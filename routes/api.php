@@ -13,8 +13,13 @@ use App\Http\Controllers\Api\UserLogin;
 
 // Juanflix Api Route
 Route::group(['middleware' => 'apitoken'], function () {
+
+    // Film API
     Route::apiResource('film', Film::class);
     Route::get('films/genre/{genre}', [Film::class, 'filmByGenre']);
+    Route::get('films/genre-id/{genre_id}', [Film::class, 'filmByGenreID']);
+
+    // User API
     Route::apiResource('userlogin', UserLogin::class);
     Route::apiResource('user', User::class);
 });
