@@ -10,18 +10,19 @@ use Filament\Tables\Table;
 use Filament\Resources\Resource;
 use App\Models\Film as ModelsFilm;
 use Filament\Forms\Components\Grid;
+use Filament\Forms\Components\Select;
 use App\Filament\Clusters\FilmCluster;
+use Filament\Tables\Columns\TextColumn;
 use Filament\Forms\Components\TextInput;
+use Filament\Tables\Columns\ImageColumn;
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\RichEditor;
 use Illuminate\Database\Eloquent\Builder;
+use Filament\Forms\Components\CheckboxList;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use App\Filament\Resources\Admin\FilmResource\Pages;
 use App\Filament\Resources\Admin\FilmResource\RelationManagers;
-use Filament\Forms\Components\CheckboxList;
-use Filament\Tables\Columns\ImageColumn;
-use Filament\Tables\Columns\TextColumn;
 
 class FilmResource extends Resource
 {
@@ -39,8 +40,9 @@ class FilmResource extends Resource
                 ->schema([
                     TextInput::make('title')
                         ->label('Title')
+                        ->columnSpanFull()
                         ->required(),
-                    DatePicker::make('release_at')
+                    DatePicker::make('released_at')
                         ->label('Release At')
                         ->required(),
                     TextInput::make('duration')
@@ -49,14 +51,23 @@ class FilmResource extends Resource
                     TextInput::make('rating')
                         ->label('Rating')
                         ->required(),
+                    Select::make('film_type')
+                        ->label('Film Type')
+                        ->options([
+                            'basic' => 'Basic',
+                            'subscription' => 'Subscription',
+                            'rental' => 'Rental',
+                        ])
+                        ->required()
+                        ->searchable(),
                     RichEditor::make('description')
                         ->label('Description')
                         ->columnSpanFull(),
-                    TextInput::make('src')
-                        ->label('JW Player src')
+                    TextInput::make('media_id')
+                        ->label('JW Media ID')
                         ->required(),
-                    TextInput::make('trailer_src')
-                        ->label('JW Player trailer')
+                    TextInput::make('trailer_id')
+                        ->label('JW Trailer ID')
                         ->required(),
                     FileUpload::make('poster')
                         ->label('Poster')
