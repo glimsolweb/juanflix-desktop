@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('crews', function (Blueprint $table) {
             $table->id();
             $table->string('name')->nullable();
+            $table->text('image')->nullable();
             $table->string('position')->nullable();
             $table->integer('priority')->nullable();
             $table->timestamps();

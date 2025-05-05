@@ -22,6 +22,7 @@ class DatabaseSeeder extends Seeder
             FilmSeeder::class,
             FilmGenreSeeder::class,
             FilmCategorieSeeder::class,
+            CrewSeeder::class,
         ]);
         // User::factory(10)->create();
 
