@@ -11,12 +11,13 @@ use Filament\Resources\Resource;
 use Filament\Forms\Components\Grid;
 use Filament\Forms\Components\Select;
 use App\Filament\Clusters\FilmCluster;
+use Filament\Tables\Columns\TextColumn;
 use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\FileUpload;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use App\Filament\Resources\Admin\CrewResource\Pages;
 use App\Filament\Resources\Admin\CrewResource\RelationManagers;
-use Filament\Tables\Columns\TextColumn;
 
 class CrewResource extends Resource
 {
@@ -34,8 +35,12 @@ class CrewResource extends Resource
                 ->schema([
                     TextInput::make('name')
                         ->label('Name')
-                        ->columnSpanFull()
                         ->required(),
+                    FileUpload::make('image')
+                        ->label('Image')
+                        ->directory('uploaded-files')
+                        ->image()
+                        ->maxSize(2048),
                     TextInput::make('position')
                         ->label('Position'),
                     TextInput::make('priority')
