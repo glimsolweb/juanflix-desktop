@@ -15,7 +15,7 @@ class FilmRepository
 
     public function getFilm(string $id)
     {
-        $films = Film::with(['genres','categories'])->where('id',$id)->get();
+        $films = Film::with(['genres','categories','crews'])->where('id',$id)->get();
         return $films;
     }
 
