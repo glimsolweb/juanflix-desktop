@@ -16,7 +16,9 @@ class ApiToken
     public function handle(Request $request, Closure $next): Response
     {
         if ($request->bearerToken() !== env('API_TOKEN')){
-            return redirect('/login');
+            return response()->json([
+                'message' => 'Invalid Bearer Token'
+            ], 400);
         }
         return $next($request);
     }

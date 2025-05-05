@@ -46,8 +46,8 @@ class FilmSeeder extends Seeder
                 'media_id' => 'MDV6Z7lb',
                 'trailer_id' => '8A7JJdra',
                 'film_type' => 'subscription',
-                'poster' => 'https://abkd-alpha-fdcpchannel-bucket.s3.ap-southeast-1.amazonaws.com/images/pLnmju7zajpJngXGh9JCBncQ8r9VReDCchOhF05p.jpg',
-                'thumbnail' => 'https://abkd-alpha-fdcpchannel-bucket.s3.ap-southeast-1.amazonaws.com/images/zetTPZexCRR9qMxOimoWVrTkRqc8bUGRl6AA0RGr.png',
+                'poster' => 'https://abkd-alpha-fdcpchannel-bucket.s3.ap-southeast-1.amazonaws.com/images/k277RmZ8Pw2pOUffTFUelNNSbzPHums2VqFJTVYy.png',
+                'thumbnail' => 'https://abkd-alpha-fdcpchannel-bucket.s3.ap-southeast-1.amazonaws.com/images/kJxaTXc7Xt1RBJm4FIBNOQbvitD38GzFBdaJFYMx.png',
                 'rating' => 'PG',
                 'duration' => '5'
             ],
