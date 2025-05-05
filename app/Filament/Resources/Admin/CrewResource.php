@@ -3,25 +3,26 @@
 namespace App\Filament\Resources\Admin;
 
 use Filament\Forms;
+use App\Models\Crew;
 use Filament\Tables;
 use Filament\Forms\Form;
-use App\Models\Categories;
 use Filament\Tables\Table;
 use Filament\Resources\Resource;
+use Filament\Forms\Components\Grid;
+use Filament\Forms\Components\Select;
 use App\Filament\Clusters\FilmCluster;
 use Filament\Forms\Components\TextInput;
-use Filament\Forms\Components\RichEditor;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
-use App\Filament\Resources\Admin\CategoriesResource\Pages;
-use App\Filament\Resources\Admin\CategoriesResource\RelationManagers;
+use App\Filament\Resources\Admin\CrewResource\Pages;
+use App\Filament\Resources\Admin\CrewResource\RelationManagers;
 use Filament\Tables\Columns\TextColumn;
 
-class CategoriesResource extends Resource
+class CrewResource extends Resource
 {
-    protected static ?string $model = Categories::class;
+    protected static ?string $model = Crew::class;
     protected static ?string $cluster = FilmCluster::class;
-    protected static ?int $navigationSort = 4;
+    protected static ?int $navigationSort = 2;
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
     public static function form(Form $form): Form
@@ -29,11 +30,17 @@ class CategoriesResource extends Resource
         return $form
             ->schema([
                 //
-                TextInput::make('name')
-                    ->label('Categories Name'),
-                RichEditor::make('description')
-                    ->label('Description')
-                    ->columnSpanFull(),
+                Grid::make(2)
+                ->schema([
+                    TextInput::make('name')
+                        ->label('Name')
+                        ->columnSpanFull()
+                        ->required(),
+                    TextInput::make('position')
+                        ->label('Position'),
+                    TextInput::make('priority')
+                        ->label('Priority')
+                ])
             ]);
     }
 
@@ -43,9 +50,11 @@ class CategoriesResource extends Resource
             ->columns([
                 //
                 TextColumn::make('name')
-                    ->label('Categories Name'),
-                TextColumn::make('description')
-                    ->label('Description'),
+                    ->label('Name'),
+                TextColumn::make('position')
+                    ->label('Position'),
+                TextColumn::make('priority')
+                    ->label('Priority'),
             ])
             ->filters([
                 //
@@ -70,9 +79,9 @@ class CategoriesResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListCategories::route('/'),
-            'create' => Pages\CreateCategories::route('/create'),
-            'edit' => Pages\EditCategories::route('/{record}/edit'),
+            'index' => Pages\ListCrews::route('/'),
+            'create' => Pages\CreateCrew::route('/create'),
+            'edit' => Pages\EditCrew::route('/{record}/edit'),
         ];
     }
 }

@@ -92,6 +92,15 @@ class FilmResource extends Resource
                         ->relationship('categories', 'name')
                         ->searchable()
                         ->columns(4)
+                        ->columnSpanFull(),
+                    CheckboxList::make('crews')
+                        ->label('Crew')
+                        ->relationship('crews', 'name')
+                        ->getOptionLabelFromRecordUsing(function ($record) {
+                            return "{$record->name} ({$record->position})";
+                        })
+                        ->searchable()
+                        ->columns(4)
                         ->columnSpanFull()
                 ])
             ]);
