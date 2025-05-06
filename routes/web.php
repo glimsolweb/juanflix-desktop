@@ -1,12 +1,18 @@
 <?php
 
+use App\Livewire\Landing\Homepage;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\User\UserController;
 
 // Public Route
-Route::get('/', function () {
-    return view('layouts.guest.landing.homepage');
-})->name('homepage');
+// Route::get('/', function () {
+//     return view('layouts.guest.landing.homepage');
+// })->name('homepage');
+
+// Landing Page
+Route::get('/', Homepage::class);
+
+
 
 Route::get('usercreate', [UserController::class, 'createUser']);
 
