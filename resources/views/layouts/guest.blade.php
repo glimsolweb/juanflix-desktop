@@ -18,8 +18,9 @@
         <!-- Styles -->
         @livewireStyles
     </head>
-    <body>
+    <body class="bg-jf-black">
         <div class="font-sans text-gray-900 antialiased bg-body-black">
+            <x-juanflix.header />
             {{ $slot }}
             @include('layouts.guest.footer')
         </div>

@@ -1,10 +1,5 @@
 <x-guest-layout>
-    <x-juanflix.header>
-        <x-slot name="logo">
-            <x-authentication-card-logo />
-        </x-slot>
-
-        <div class="md:w-[550px] w-full m-auto my-[20px] md:my-[50px]">
+        <div class="md:w-[550px] w-full m-auto py-[20px] md:py-[100px] px-[50px]">
             <div class="flex flex-col items-center">
                 <h1 class="font-bold text-[2.5rem] text-jf-yellow">LET'S GET STARTED!</h1>
                 <p class="text-jf-white2 mb-[50px]">Sign up to get started and enjoy exclusive features.</p>
@@ -65,5 +60,4 @@
                 </div>
             </form>
         </div>
-    </x-juanflix.header>
 </x-guest-layout>

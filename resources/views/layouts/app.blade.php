@@ -8,10 +8,8 @@
         <title>{{ config('app.name', ': The FDCP Channel') }}</title>
         <link rel="icon" type="image/x-icon" href="{{ asset('images/icon.png') }}">
 
-        <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
-
+        {{-- fontawesome --}}
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
         <!-- Styles -->
@@ -21,7 +19,6 @@
         <x-banner />
         <div class="min-h-screen bg-gray-100">
             @livewire('navigation-menu')
-
             <!-- Page Heading -->
             @if (isset($header))
                 <header class="bg-white shadow">
@@ -30,15 +27,12 @@
                     </div>
                 </header>
             @endif
-
             <!-- Page Content -->
             <main>
                 {{ $slot }}
             </main>
         </div>
-
         @stack('modals')
-
         @livewireScripts
     </body>
 </html>

@@ -1,15 +1,25 @@
-<div>
-    <div class="md:container max-w-sm mx-auto px-[30px]">
-        <div class="flex py-5 items-center">
-            {{ $logo }}
-            @if (request()->routeIs('login'))
-                <a href="{{ route('register') }}"
-                class="text-jf-black ml-auto bg-jf-yellow p-[5px_20px] rounded-[5px] font-bold">Sign Up</a>
-            @elseif (request()->routeIs('register'))
-                <a href="{{ route('login') }}"
-                class="text-jf-black ml-auto bg-jf-yellow p-[5px_20px] rounded-[5px] font-bold">Sign In</a>
+<div class="md:container max-w-sm mx-auto px-[5px] mdpx-[30px] md:absolute md:left-[50%] md:-translate-x-1/2">
+    <header class="w-full flex flex-row items-center py-5">
+        <x-authentication-card-logo />
+        <div class="ml-auto text-jf-white">
+            @if (Route::has('login'))
+                <nav class="flex items-center justify-end gap-4">
+                    @auth
+                        <a href="{{ url('/dashboard') }}" class="text-jf-black ml-auto bg-jf-yellow p-[5px_20px] rounded-[5px] font-bold">
+                            Dashboard
+                        </a>
+                    @else
+                        <a href="{{ route('login') }}" class="text-jf-black ml-auto bg-jf-yellow p-[5px_20px] rounded-[5px] font-bold">
+                            Sign In
+                        </a>
+                        @if (Route::has('register'))
+                            <a href="{{ route('register') }}" class="text-jf-black ml-auto bg-jf-yellow p-[5px_20px] rounded-[5px] font-bold">
+                                Sign Up
+                            </a>
+                        @endif
+                    @endauth
+                </nav>
             @endif
         </div>
-        {{ $slot }}
-    </div>
+    </header>
 </div>
