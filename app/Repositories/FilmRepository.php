@@ -9,7 +9,7 @@ class FilmRepository
 {
     public function getAllFilms()
     {
-        $films = Film::with(['genres','categories'])->get();
+        $films = Film::with(['genres','categories', 'crews'])->get();
         return $films;
     }
 
