@@ -1,4 +1,8 @@
-<div class="md:container max-w-sm mx-auto px-[5px] mdpx-[30px] md:absolute md:left-[50%] md:-translate-x-1/2">
+@php
+    $headerClass = $isAbsolute ? 'md:absolute md:left-[50%] md:-translate-x-1/2' : 'relative';
+@endphp
+
+<div class="md:container mx-auto px-[5px] mdpx-[30px] {{ $headerClass }}">
     <header class="w-full flex flex-row items-center py-5">
         <x-authentication-card-logo />
         <div class="ml-auto text-jf-white">

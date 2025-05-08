@@ -7,10 +7,8 @@
 
         <title>{{ config('app.name', ': The FDCP Channel') }}</title>
         <link rel="icon" type="image/x-icon" href="{{ asset('images/icon.png') }}">
-
-        <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+        {{-- fontawesome --}}
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -20,9 +18,9 @@
     </head>
     <body class="bg-jf-black">
         <div class="font-sans text-gray-900 antialiased bg-body-black">
-            <x-juanflix.header />
+            @include('layouts.section.header', ['isAbsolute' => $isHeaderAbsolute ?? false])
             {{ $slot }}
-            @include('layouts.guest.footer')
+            @include('layouts.section.footer')
         </div>
         @livewireScripts
     </body>
