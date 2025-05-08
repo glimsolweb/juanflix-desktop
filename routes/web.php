@@ -3,6 +3,7 @@
 use App\Livewire\Landing\Homepage;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\User\UserController;
+use App\Livewire\Landing\Plan;
 
 // Public Route
 // Route::get('/', function () {
@@ -12,15 +13,10 @@ use App\Http\Controllers\User\UserController;
 // Landing Page
 Route::get('/', Homepage::class);
 
-
-
 Route::get('usercreate', [UserController::class, 'createUser']);
 
-Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified',
-])->group(function () {
+Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])->group(function () {
+    Route::get('/plans', Plan::class);
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
