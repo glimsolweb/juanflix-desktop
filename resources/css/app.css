@@ -1,6 +1,9 @@
+/* @import 'tailwindcss'; */
+@import '../../vendor/livewire/flux/dist/flux.css';
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@custom-variant dark (&:where(.dark, .dark *));
 
 [x-cloak] {
     display: none;

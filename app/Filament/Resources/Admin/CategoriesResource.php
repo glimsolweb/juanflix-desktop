@@ -9,13 +9,15 @@ use App\Models\Categories;
 use Filament\Tables\Table;
 use Filament\Resources\Resource;
 use App\Filament\Clusters\FilmCluster;
+use Filament\Tables\Columns\TextColumn;
 use Filament\Forms\Components\TextInput;
+use Filament\Tables\Columns\ImageColumn;
+use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\RichEditor;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use App\Filament\Resources\Admin\CategoriesResource\Pages;
 use App\Filament\Resources\Admin\CategoriesResource\RelationManagers;
-use Filament\Tables\Columns\TextColumn;
 
 class CategoriesResource extends Resource
 {
@@ -31,6 +33,11 @@ class CategoriesResource extends Resource
                 //
                 TextInput::make('name')
                     ->label('Categories Name'),
+                FileUpload::make('banner')
+                    ->label('Banner')
+                    ->directory('uploaded-files')
+                    ->image()
+                    ->maxSize(2048),
                 RichEditor::make('description')
                     ->label('Description')
                     ->columnSpanFull(),
@@ -44,6 +51,8 @@ class CategoriesResource extends Resource
                 //
                 TextColumn::make('name')
                     ->label('Categories Name'),
+                ImageColumn::make('banner')
+                    ->label('Banner'),
                 TextColumn::make('description')
                     ->label('Description'),
             ])

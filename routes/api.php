@@ -4,6 +4,7 @@ use App\Http\Controllers\Api\CrewController;
 use Illuminate\Http\Request;
 use App\Http\Middleware\ApiToken;
 use App\Http\Controllers\Api\Film;
+use App\Http\Controllers\Api\GenreController;
 use App\Http\Controllers\Api\User;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\UserLogin;
@@ -18,6 +19,9 @@ Route::group(['middleware' => 'apitoken'], function () {
     Route::apiResource('film', Film::class);
     Route::get('films/genre/{genre}', [Film::class, 'filmByGenre']);
     Route::get('films/genre-id', [Film::class, 'filmByGenreID']);
+
+    // Genre API
+    Route::apiResource('genre', GenreController::class);
 
     // Crew API
     Route::apiResource('crews', CrewController::class);

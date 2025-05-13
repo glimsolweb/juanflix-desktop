@@ -14,6 +14,8 @@ return new class extends Migration
         Schema::create('genres', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->longText('description')->nullable();
+            $table->text('banner')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

@@ -9,12 +9,15 @@ use Filament\Forms\Form;
 use Filament\Tables\Table;
 use Filament\Resources\Resource;
 use App\Filament\Clusters\FilmCluster;
+use Filament\Tables\Columns\TextColumn;
+use Filament\Forms\Components\TextInput;
+use Filament\Tables\Columns\ImageColumn;
+use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\RichEditor;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use App\Filament\Resources\Admin\GenreResource\Pages;
 use App\Filament\Resources\Admin\GenreResource\RelationManagers;
-use Filament\Forms\Components\TextInput;
-use Filament\Tables\Columns\TextColumn;
 
 class GenreResource extends Resource
 {
@@ -29,7 +32,15 @@ class GenreResource extends Resource
             ->schema([
                 //
                 TextInput::make('name')
-                    ->label('Genre Name')
+                    ->label('Genre Name'),
+                FileUpload::make('banner')
+                    ->label('Banner')
+                    ->directory('uploaded-files')
+                    ->image()
+                    ->maxSize(2048),
+                RichEditor::make('description')
+                    ->label('Description')
+                    ->columnSpanFull(),
             ]);
     }
 
@@ -39,7 +50,9 @@ class GenreResource extends Resource
             ->columns([
                 //
                 TextColumn::make('name')
-                    ->label('Genre Name')
+                    ->label('Genre Name'),
+                ImageColumn::make('banner')
+                    ->label('Banner'),
             ])
             ->filters([
                 //

@@ -13,6 +13,7 @@
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
         <!-- Styles -->
+        @fluxAppearance
         @livewireStyles
     </head>
     <body class="font-sans antialiased">
@@ -33,6 +34,7 @@
             </main>
         </div>
         @stack('modals')
+        @fluxScripts
         @livewireScripts
     </body>
 </html>

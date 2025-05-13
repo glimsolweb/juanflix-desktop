@@ -5,6 +5,7 @@ const plugin = require('tailwindcss/plugin');
 
 /** @type {import('tailwindcss').Config} */
 export default {
+    mode: 'jit',
     content: [
         './vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',
         './vendor/laravel/jetstream/**/*.blade.php',
@@ -24,8 +25,10 @@ export default {
             colors: {
                 'jf-white' : '#ffffff',
                 'jf-white2' : '#E2E2E2',
+                'jf-white3' : '#C1C1C1',
                 'jf-black' : '#000000',
                 'jf-yellow' : '#FFC300',
+                'jf-red' : '#ff4949',
                 'jf-gray' : '#737373',
                 'jf-gray-transparent' : '#262626B3',
             }

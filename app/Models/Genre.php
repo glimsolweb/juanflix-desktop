@@ -10,7 +10,9 @@ class Genre extends Model
     //
     protected $table = 'genres';
     protected $fillable = [
-        'name'
+        'name',
+        'banner',
+        'description',
     ];
 
     public function films(): BelongsToMany

@@ -73,14 +73,12 @@ class FilmResource extends Resource
                         ->label('Poster')
                         ->directory('uploaded-files')
                         ->image()
-                        ->maxSize(2048)
-                        ->required(),
+                        ->maxSize(2048),
                     FileUpload::make('thumbnail')
                         ->label('Thumbnail')
                         ->directory('uploaded-files')
                         ->image()
-                        ->maxSize(2048)
-                        ->required(),
+                        ->maxSize(2048),
                     CheckboxList::make('genres')
                         ->label('Genre')
                         ->relationship('genres', 'name')
