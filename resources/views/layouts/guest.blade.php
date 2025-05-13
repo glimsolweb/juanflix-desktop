@@ -14,6 +14,7 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
 
         <!-- Styles -->
+        @fluxAppearance
         @livewireStyles
     </head>
     <body class="bg-jf-black">
@@ -22,6 +23,7 @@
             {{ $slot }}
             @include('layouts.section.footer')
         </div>
+        @fluxScripts
         @livewireScripts
     </body>
 </html>

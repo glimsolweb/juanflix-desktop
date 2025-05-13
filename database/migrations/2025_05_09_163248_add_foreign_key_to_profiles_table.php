@@ -11,13 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('categories', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->longText('description')->nullable();
-            $table->text('banner')->nullable();
-            $table->timestamps();
-            $table->softDeletes();
+        Schema::table('profiles', function (Blueprint $table) {
+            //
+            $table->foreignId('profile_icon_id')->after('name')->constrained('profile_icons')->cascadeOnDelete();
         });
     }
 
@@ -26,6 +22,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('categories');
+        Schema::table('profiles', function (Blueprint $table) {
+            //
+        });
     }
 };

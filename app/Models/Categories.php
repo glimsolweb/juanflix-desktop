@@ -10,6 +10,7 @@ class Categories extends Model
     protected $table = 'categories';
     protected $fillable = [
         'name',
+        'banner',
         'description'
     ];
 }
