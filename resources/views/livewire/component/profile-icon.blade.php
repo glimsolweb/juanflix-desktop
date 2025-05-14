@@ -1,6 +1,6 @@
 <div>
     <div class="my-[50px] relative">
-        <img src="{{ asset($selectedIcon ?? 'images/icon-yellow.jpg') }}" class="w-[130px] md:w-[150px] h-[130px] md:h-[150px] rounded-[5px]" alt="Profiles">
+        <img src="{{ asset($selectedIconImg ?? 'images/icon-yellow.jpg') }}" class="w-[130px] md:w-[150px] h-[130px] md:h-[150px] rounded-[5px]" alt="Profiles">
         <div class="absolute -bottom-[15px] -right-[15px]">
 
             <flux:modal.trigger name="edit-profile">
@@ -18,7 +18,7 @@
                     </div>
                     <div class="flex flex-row flex-wrap gap-[10px] md:gap-[30px] justify-between">
                         @foreach ($available_icons as $icon)
-                            <img src="{{ asset($icon) }}" class="hover:cursor-pointer hover:scale-[1.05] transition-all border-2 w-[130px] md:w-[150px] h-[130px] md:h-[150px] rounded-[5px]" alt="Profiles" wire:click="renderIcon('{{ $icon }}')">
+                            <img src="{{ asset($icon->image) }}" class="hover:cursor-pointer hover:scale-[1.05] transition-all border-2 w-[130px] md:w-[150px] h-[130px] md:h-[150px] rounded-[5px]" alt="Profiles" wire:click="renderIcon('{{ $icon->image }}', {{ $icon->id }})">
                         @endforeach
                     </div>
                 </div>

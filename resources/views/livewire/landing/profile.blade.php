@@ -5,7 +5,7 @@
     </div>
     <form wire:submit='save'>
         <div class="flex flex-col justify-center items-center">
-            <livewire:component.profile-icon wire:model='selected_icon'>
+            <livewire:component.profile-icon wire:model='selected_icon' />
             <input class="block w-[300px] bg-jf-gray-transparent text-jf-white3 rounded-[5px] border border-jf-white3" type="text" placeholder="Enter your name" wire:model='profile_name'>
             <div>
                 @error('selected_icon')<span class="error my-2 text-jf-red block">{{ $message }}</span>@enderror

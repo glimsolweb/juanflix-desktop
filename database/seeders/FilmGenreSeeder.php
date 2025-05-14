@@ -17,15 +17,15 @@ class FilmGenreSeeder extends Seeder
         $film_genre = [
             [
                 'film_id' => 1,
-                'genre_id' => 9
+                'genre_id' => 4
             ],
             [
                 'film_id' => 2,
-                'genre_id' => 9
+                'genre_id' => 4
             ],
             [
                 'film_id' => 3,
-                'genre_id' => 8
+                'genre_id' => 2
             ],
         ];
 

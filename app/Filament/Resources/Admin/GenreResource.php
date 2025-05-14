@@ -32,9 +32,15 @@ class GenreResource extends Resource
             ->schema([
                 //
                 TextInput::make('name')
-                    ->label('Genre Name'),
+                    ->label('Genre Name')
+                    ->columnSpanFull(),
                 FileUpload::make('banner')
                     ->label('Banner')
+                    ->directory('uploaded-files')
+                    ->image()
+                    ->maxSize(2048),
+                FileUpload::make('genre_icon')
+                    ->label('Genre Icon')
                     ->directory('uploaded-files')
                     ->image()
                     ->maxSize(2048),
@@ -51,6 +57,8 @@ class GenreResource extends Resource
                 //
                 TextColumn::make('name')
                     ->label('Genre Name'),
+                ImageColumn::make('genre_icon')
+                    ->label('Genre Icon'),
                 ImageColumn::make('banner')
                     ->label('Banner'),
             ])

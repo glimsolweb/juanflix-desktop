@@ -16,11 +16,34 @@ class GenreSeeder extends Seeder
     public function run(): void
     {
         //
-        $genres = ['Action','Adventure','Animation','Biography','Comedy','Crime','Cultural','Documentary','Drama','Horror','Romance'];
+        $genres = [
+            [
+                'name' => 'Action',
+                'genre_icon' => 'images/action.svg'
+            ],
+            [
+                'name' => 'Comedy',
+                'genre_icon' => 'images/comedy.svg'
+            ],
+            [
+                'name' => 'Documentary',
+                'genre_icon' => 'images/documentary.svg'
+            ],
+            [
+                'name' => 'Drama',
+                'genre_icon' => 'images/drama.svg'
+            ],
+            [
+                'name' => 'Sci-Fi',
+                'genre_icon' => 'images/scifi.svg'
+            ],
+            [
+                'name' => 'Kids and Family',
+                'genre_icon' => 'images/kids-family.svg'
+            ]
+        ];
         foreach ($genres as $genre) {
-            Genre::create([
-                'name' => $genre,
-            ]);
+            Genre::create($genre);
         }
     }
 }

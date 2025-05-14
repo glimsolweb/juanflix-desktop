@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->longText('description')->nullable();
             $table->text('banner')->nullable();
+            $table->text('genre_icon')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

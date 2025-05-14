@@ -2,31 +2,39 @@
 
 namespace App\Livewire\Component;
 
+use App\Services\ProfileService;
 use Flux\Flux;
 use Livewire\Attributes\Modelable;
 use Livewire\Component;
 
 class ProfileIcon extends Component
 {
+    public $selectedIconImg;
     #[Modelable]
-    public $selectedIcon;
-    public function renderIcon($icon)
+    public $selectedIconID;
+
+    private $ProfileService;
+
+    public function mount(ProfileService $profile_service)
     {
-        $this->selectedIcon = $icon;
+        $this->ProfileService = $profile_service;
+    }
+
+    public function renderIcon($iconImg, $iconID)
+    {
+
+        $this->selectedIconImg = $iconImg;
+        $this->selectedIconID = $iconID;
         Flux::modal('edit-profile')->close();
     }
 
-    public function render()
+    public function render(ProfileService $profile_service)
     {
         // Available Icons
-        $available_icons = [
-            'images/icon-yellow.jpg',
-            'images/profile1.png',
-            'images/profile2.png',
-            'images/profile3.png',
-        ];
+        $available_icons = $profile_service->getAvailableProfileIcons();
         // Default Icon
-        $selectedIcon = 'images/icon-yellow.jpg';
-        return view('livewire.component.profile-icon', compact('selectedIcon','available_icons'));
+        $selectedIconImg = 'images/icon-yellow.jpg';
+        $selectedIconId = 1;
+        return view('livewire.component.profile-icon', compact('selectedIconImg', 'available_icons', 'selectedIconId'));
     }
 }
