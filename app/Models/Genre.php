@@ -11,6 +11,7 @@ class Genre extends Model
     protected $table = 'genres';
     protected $fillable = [
         'name',
+        'genre_icon',
         'banner',
         'description',
     ];

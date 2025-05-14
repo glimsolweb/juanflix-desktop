@@ -3,6 +3,7 @@
 namespace App\Repositories;
 
 use App\Models\Profile;
+use App\Models\ProfileIcon;
 use Illuminate\Support\Facades\Auth;
 
 class ProfileRepository
@@ -11,12 +12,22 @@ class ProfileRepository
     {
         try {
             $user = Auth::user();
-            Profile::create([
+            $profile = Profile::create([
                 'user_id' => $user->id,
                 'name' => $profile_name,
-                'icon' => $selected_icon
+                'profile_icon_id' => $selected_icon
             ]);
-            return true;
+            return $profile;
+        } catch (\Throwable $th) {
+            return false;
+        }
+    }
+
+    public function fetchAllProfileIcons()
+    {
+        try {
+            $icons = ProfileIcon::get();
+            return $icons;
         } catch (\Throwable $th) {
             return false;
         }

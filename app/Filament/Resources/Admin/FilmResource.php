@@ -8,7 +8,6 @@ use Filament\Tables;
 use Filament\Forms\Form;
 use Filament\Tables\Table;
 use Filament\Resources\Resource;
-use App\Models\Film as ModelsFilm;
 use Filament\Forms\Components\Grid;
 use Filament\Forms\Components\Select;
 use App\Filament\Clusters\FilmCluster;

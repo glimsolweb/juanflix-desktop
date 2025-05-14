@@ -24,16 +24,16 @@ class Profile extends Component
 
         // Set default icon
         if (is_null($this->selected_icon)) {
-            $this->selected_icon = 'images/icon-yellow.jpg';
+            $this->selected_icon = 1;
         }
 
-        // Call the function to save on Database
+        // Call the function to save profile on Database
         $profile = $ProfileService->saveUserProfile($this->profile_name, $this->selected_icon);
         if ($profile) {
             return response()->json([
                 'message' => 'profile saved'
             ], 200);
         }
-        return redirect()->back()->withErrors('something went wrong')->withInput();
+        return redirect()->back()->withErrors('something went wrong or no login user')->withInput();
     }
 }

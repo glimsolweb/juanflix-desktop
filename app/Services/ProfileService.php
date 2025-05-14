@@ -10,8 +10,14 @@ class ProfileService
     public function __construct(ProfileRepository $profile_repository) {
         $this->ProfileRepository = $profile_repository;
     }
+
     public function saveUserProfile($profile_name, $selected_icon)
     {
         return $this->ProfileRepository->saveProfile($profile_name, $selected_icon);
+    }
+
+    public function getAvailableProfileIcons()
+    {
+        return $this->ProfileRepository->fetchAllProfileIcons();
     }
 }

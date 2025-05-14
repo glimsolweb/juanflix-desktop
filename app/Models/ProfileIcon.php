@@ -8,4 +8,8 @@ class ProfileIcon extends Model
 {
     //
     protected $table = 'profile_icons';
+    protected $fillable = [
+        'image',
+        'category'
+    ];
 }
