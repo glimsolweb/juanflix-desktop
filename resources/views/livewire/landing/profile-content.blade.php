@@ -12,7 +12,7 @@
                     {{ $isSelected ? 'bg-jf-yellow' : '' }}"
                     >
                         <input class="hidden" type="checkbox" value="{{ $genre->id }}" wire:model="content_genre_id" wire:click='selectedContentGenre'>
-                        <img class="bg-white rounded-full md:w-[100px] md:h-[100px] p-[10px]" src="{{ asset('storage/' . $genre->genre_icon) }}" alt="{{ $genre->name }}">
+                        <img class="bg-white rounded-full md:w-[100px] md:h-[100px] p-[10px]" src="{{ asset($genre->genre_icon) }}" alt="{{ $genre->name }}">
                         <p class="md:text-[1.5rem] {{ $isSelected ? 'text-jf-black' : '' }}">{{ $genre->name }}</p>
                     </label>
                 @endforeach
