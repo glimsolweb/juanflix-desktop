@@ -1,6 +1,6 @@
 <div>
     <div class="my-[50px] relative">
-        <img src="{{ asset($selectedIconImg ?? 'images/icon-yellow.jpg') }}" class="w-[130px] md:w-[150px] h-[130px] md:h-[150px] rounded-[5px]" alt="Profiles">
+        <img src="{{ asset('storage/'.$selectedIconImg ?? 'images/icon-yellow.jpg') }}" class="w-[130px] md:w-[150px] h-[130px] md:h-[150px] rounded-[5px]" alt="Profiles">
         <div class="absolute -bottom-[15px] -right-[15px]">
 
             <flux:modal.trigger name="edit-profile">
