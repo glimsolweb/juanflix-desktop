@@ -20,4 +20,9 @@ class FacebookController extends SocialiteController
         $this->createOrUpdateUser($user, 'facebook');
         return redirect()->route('homepage');
     }
+
+    public function facebookDelete()
+    {
+        return true;
+    }
 }
