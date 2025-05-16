@@ -1,5 +1,6 @@
 <div class="container mx-auto my-[50px] px-[5px]">
     <div class="text-center mx-auto">
+        <h1 class="text-[1.2rem] font-bold text-jf-white">STEP 3 OF 3</h1>
         <h1 class="text-[2.5rem] font-bold text-jf-yellow">ADD PROFILE</h1>
         <p>Add your profile before watching JuanFlix.</p>
     </div>

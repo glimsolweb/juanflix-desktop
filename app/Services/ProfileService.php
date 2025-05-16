@@ -16,6 +16,11 @@ class ProfileService
         return $this->ProfileRepository->saveProfile($profile_name, $selected_icon);
     }
 
+    public function saveUserPreferences($profileID, $genreID)
+    {
+        return $this->ProfileRepository->saveProfilePreferences($profileID, $genreID);
+    }
+
     public function getAvailableProfileIcons()
     {
         return $this->ProfileRepository->fetchAllProfileIcons();

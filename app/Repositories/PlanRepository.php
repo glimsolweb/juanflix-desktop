@@ -10,4 +10,9 @@ class PlanRepository
     {
         return Plan::all();
     }
+
+    public function saveUserPlan()
+    {
+        return redirect()->route('profile');
+    }
 }

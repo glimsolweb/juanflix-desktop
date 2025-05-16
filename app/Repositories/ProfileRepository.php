@@ -4,6 +4,7 @@ namespace App\Repositories;
 
 use App\Models\Profile;
 use App\Models\ProfileIcon;
+use App\Models\ProfilePreference;
 use Illuminate\Support\Facades\Auth;
 
 class ProfileRepository
@@ -18,6 +19,19 @@ class ProfileRepository
                 'profile_icon_id' => $selected_icon
             ]);
             return $profile;
+        } catch (\Throwable $th) {
+            return false;
+        }
+    }
+
+    public function saveProfilePreferences($profileID, $genreID)
+    {
+        try {
+            $profilePreference = ProfilePreference::create([
+                'profile_id' => $profileID,
+                'genre_id' => $genreID,
+            ]);
+            return $profilePreference;
         } catch (\Throwable $th) {
             return false;
         }
