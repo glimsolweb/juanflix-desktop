@@ -18,7 +18,7 @@
                     </div>
                     <div class="flex flex-row flex-wrap gap-[10px] md:gap-[30px] justify-between">
                         @foreach ($available_icons as $icon)
-                            <img src="{{ asset($icon->image) }}" class="hover:cursor-pointer hover:scale-[1.05] transition-all border-2 w-[130px] md:w-[150px] h-[130px] md:h-[150px] rounded-[5px]" alt="Profiles" wire:click="renderIcon('{{ $icon->image }}', {{ $icon->id }})">
+                            <img src="{{ asset('storage/'.$icon->image) }}" class="hover:cursor-pointer hover:scale-[1.05] transition-all border-2 w-[130px] md:w-[150px] h-[130px] md:h-[150px] rounded-[5px]" alt="Profiles" wire:click="renderIcon('{{ $icon->image }}', {{ $icon->id }})">
                         @endforeach
                     </div>
                 </div>
