@@ -10,11 +10,11 @@ use App\Livewire\Landing\ProfileContent;
 // Public Route
 // Landing Page
 Route::get('/', Homepage::class)->name('homepage');
-Route::get('/profile-content', ProfileContent::class);
 
 // Authenticated Route
 Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])->group(function () {
-    Route::get('/profile', Profile::class);
+    Route::get('/profile', Profile::class)->name('profile');
+    Route::get('/profile-content/{profileID}', ProfileContent::class)->name('profile-content');
     Route::get('/plans', Plan::class);
     Route::get('/dashboard', function () {
         return view('dashboard');

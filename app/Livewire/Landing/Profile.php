@@ -30,9 +30,7 @@ class Profile extends Component
         // Call the function to save profile on Database
         $profile = $ProfileService->saveUserProfile($this->profile_name, $this->selected_icon);
         if ($profile) {
-            return response()->json([
-                'message' => 'profile saved'
-            ], 200);
+            $this->redirectRoute('profile-content', ['profileID' => $profile->id]);
         }
         return redirect()->back()->withErrors('something went wrong or no login user')->withInput();
     }

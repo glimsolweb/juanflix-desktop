@@ -15,4 +15,9 @@ class PlanService
     {
         return $this->PlanRepository->fetchAllPlans();
     }
+
+    public function selectedUserPlan()
+    {
+        return $this->PlanRepository->saveUserPlan();
+    }
 }

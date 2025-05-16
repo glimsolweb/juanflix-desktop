@@ -8,4 +8,13 @@ class ProfilePreference extends Model
 {
     //
     protected $table = 'profile_preferences';
+    protected $fillable = [
+        'profile_id',
+        'genre_id',
+        'category_id',
+    ];
+    protected $casts = [
+        'genre_id' => 'array',
+        'category_id' => 'array',
+    ];
 }
