@@ -15,4 +15,5 @@ Route::group(['middleware' => ['web']], function () {
     // Facebook Route
     Route::get('/auth/facebook/redirect', [FacebookController::class, 'facebookAuth'])->name('facebook.auth');
     Route::get('/auth/facebook/callback', [FacebookController::class, 'facebookCallBack'])->name('facebook.callback');
+    Route::get('/auth/facebook/delete', [FacebookController::class, 'facebookDelete'])->name('facebook.delete');
 });
