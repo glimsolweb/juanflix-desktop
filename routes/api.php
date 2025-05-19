@@ -1,13 +1,15 @@
 <?php
 
-use App\Http\Controllers\Api\CrewController;
+use App\Models\Categories;
 use Illuminate\Http\Request;
 use App\Http\Middleware\ApiToken;
 use App\Http\Controllers\Api\Film;
-use App\Http\Controllers\Api\GenreController;
 use App\Http\Controllers\Api\User;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\UserLogin;
+use App\Http\Controllers\Api\CrewController;
+use App\Http\Controllers\Api\GenreController;
+use App\Http\Controllers\Api\CategoryController;
 
 // Route::get('/user', function (Request $request) {
 //     return $request->user();
@@ -22,6 +24,10 @@ Route::group(['middleware' => 'apitoken'], function () {
 
     // Genre API
     Route::apiResource('genre', GenreController::class);
+
+    // Categories API
+    Route::apiResource('categories', CategoryController::class);
+    Route::get('films/category-id', [Film::class, 'filmByCategoryId']);
 
     // Crew API
     Route::apiResource('crews', CrewController::class);

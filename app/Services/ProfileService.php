@@ -25,4 +25,18 @@ class ProfileService
     {
         return $this->ProfileRepository->fetchAllProfileIcons();
     }
+
+    public function getProfileOfUser()
+    {
+        return $this->ProfileRepository->fetchProfilesAuthUser();
+    }
+
+    public function checkUserMaxProfile()
+    {
+        $profiles = $this->ProfileRepository->fetchProfilesAuthUser();
+        if ($profiles->count() >= 5) {
+            return $profiles;
+        }
+        return false;
+    }
 }

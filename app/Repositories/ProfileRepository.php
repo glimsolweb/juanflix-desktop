@@ -46,4 +46,16 @@ class ProfileRepository
             return false;
         }
     }
+
+    public function fetchProfilesAuthUser()
+    {
+        try {
+            //Fetch all Profiles of Current Authenticated User
+            $currentUser = Auth::user();
+            $profiles = Profile::where('user_id', $currentUser->id)->with('profile_icons')->get();
+            return $profiles;
+        } catch (\Throwable $th) {
+            return false;
+        }
+    }
 }
