@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Categories extends Model
 {
@@ -13,4 +14,9 @@ class Categories extends Model
         'banner',
         'description'
     ];
+
+    public function films(): BelongsToMany
+    {
+        return $this->belongsToMany(Film::class, 'film_categories');
+    }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Landing;
+namespace App\Livewire\Landing\Profile;
 
 use Livewire\Component;
 use App\Services\GenreService;
@@ -36,6 +36,6 @@ class ProfileContent extends Component
     {
 
         $contentGenre = $genre_service->getAllGenre();
-        return view('livewire.landing.profile-content', compact('contentGenre'));
+        return view('livewire.landing.profile.profile-content', compact('contentGenre'));
     }
 }

@@ -12,8 +12,15 @@ class Profile extends Component
     public $profile_name = '';
     public $selected_icon;
 
-    public function render()
+    public function render(ProfileService $ProfileService)
     {
+        // Check if the current user max the profile
+        $profiles = $ProfileService->checkUserMaxProfile();
+        $errorMessage = 'User Max Profile Limit';
+        if ($profiles) {
+            $this->addError('errorMessage', 'User Max Profile Limit');
+            return view('livewire.landing.profile.profile-manage', compact('profiles'));
+        }
         return view('livewire.landing.profile');
     }
 

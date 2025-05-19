@@ -3,6 +3,8 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Profile extends Model
 {
@@ -13,4 +15,9 @@ class Profile extends Model
         'name',
         'profile_icon_id',
     ];
+
+    public function profile_icons(): BelongsTo
+    {
+        return $this->belongsTo(ProfileIcon::class, 'profile_icon_id', 'id');
+    }
 }

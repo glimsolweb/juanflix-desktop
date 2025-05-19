@@ -4,6 +4,7 @@ namespace App\Repositories;
 
 use App\Models\Film;
 use App\Models\Genre;
+use App\Models\Categories;
 
 class FilmRepository
 {
@@ -28,6 +29,12 @@ class FilmRepository
     public function getFilmByGenreID(array $genre_id)
     {
         $films = Genre::whereIn('id', $genre_id)->with('films')->get();
+        return $films;
+    }
+
+    public function getFilmByCategoryID(array $categoryId)
+    {
+        $films = Categories::whereIn('id', $categoryId)->with('films')->get();
         return $films;
     }
 }

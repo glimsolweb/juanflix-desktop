@@ -72,4 +72,31 @@ class FilmService
             ], 404);
         }
     }
+
+    public function showFilmByCategoryID(array $categoryId)
+    {
+        try {
+            //Get the category model
+            $films = $this->FilmRepository->getFilmByCategoryID($categoryId);
+            $filmsChecked = $films->map(function ($category, $key){
+                return $category->films;
+            });
+            // Flatten the collection and set to is empty
+            $films_flat = $filmsChecked->flatten()->isEmpty();
+            // Check if the category dont have film
+            if ($films_flat) {
+                return response()->json([
+                    'message' => 'No films found for this category',
+                ], 200);
+            }
+            // Return All of the Films Based on category
+            return $filmsChecked->flatten();
+
+        } catch (\Throwable $th) {
+            return response()->json([
+                'message' => 'Invalid Category or Category not found',
+                'error' => $th->getMessage(),
+            ], 404);
+        }
+    }
 }

@@ -65,4 +65,12 @@ class Film extends Controller
         $genre_id = explode(',',$arr_id);
         return $this->FilmService->showFilmByGenreID($genre_id);
     }
+
+    public function filmByCategoryId(Request $request)
+    {
+        $arr_id = $request->ids;
+        // Convert category ids parameter to array
+        $categoryIds = explode(',',$arr_id);
+        return $this->FilmService->showFilmByCategoryID($categoryIds);
+    }
 }
