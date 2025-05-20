@@ -20,15 +20,36 @@ class UserLoginService
 
     public function authenticateUser($user_validated)
     {
+        // Attempt to login the User using given credentials
         $auth = Auth::attempt(['email' => $user_validated['email'], 'password' => $user_validated['password']]);
         if($auth) {
-            $user = Auth::user();
-            $token = $user->createToken('mobile_token')->plainTextToken;
-            return $this->UserLoginRepository->getUserDataApi($user, $token);
+            // Return with JWT Token
+            return $this->UserLoginRepository->respondWithToken($auth);
         }
 
-        return back()->withErrors([
-            'message' => 'Invalid email or password'
-        ]);
+        return response()->json([
+            'message' => 'Invalid Email or Password'
+        ], 401);
     }
+
+    public function logoutUser()
+    {
+        try {
+            //Logout the user via jwt
+            Auth::logout();
+            return response()->json([
+                'message' => 'Successfully logged out'
+            ], 200);
+        } catch (\Throwable $th) {
+            return response()->json([
+                'message' => $th
+            ], 404);
+        }
+    }
+
+    public function showUserInfo()
+    {
+        return $this->UserLoginRepository->getUserDataApi();
+    }
+
 }
