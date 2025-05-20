@@ -4,6 +4,7 @@ namespace App\Repositories;
 
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use PHPOpenSourceSaver\JWTAuth\Facades\JWTAuth;
 
 class UserLoginRepository
 {
@@ -12,13 +13,31 @@ class UserLoginRepository
         return User::get()->toJson();
     }
 
-    public function getUserDataApi($user, $token)
+    public function getUserDataApi()
+    {
+        try {
+            // Authenticate the user via JWT token
+            $user = Auth::user();
+            return response()->json([
+                'user' => $user
+            ]);
+        } catch (\Throwable $th) {
+            return response()->json([
+                'message' => $th
+            ], 404);
+        }
+    }
+
+    public function respondWithToken($token)
     {
         return response()->json([
-            'user' => $user,
-            'token' => $token
+            'access_token' => $token,
+            'token_type' => 'bearer',
+            'expires_in' => JWTAuth::factory()->getTTL() * 60
         ]);
     }
+
+
 
     public function createNewUser($user, $provider)
     {

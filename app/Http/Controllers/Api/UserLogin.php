@@ -13,6 +13,17 @@ class UserLogin extends Controller
     public function __construct(UserLoginService $user_login_service) {
         $this->UserLoginService = $user_login_service;
     }
+
+    public function authUserApi()
+    {
+        return $this->UserLoginService->showUserInfo();
+    }
+
+    public function authLogoutApi()
+    {
+        return $this->UserLoginService->logoutUser();
+    }
+
     /**
      * Display a listing of the resource.
      */

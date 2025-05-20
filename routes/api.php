@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use App\Http\Middleware\ApiToken;
 use App\Http\Controllers\Api\Film;
 use App\Http\Controllers\Api\User;
+use App\Http\Controllers\Api\Profile;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\UserLogin;
 use App\Http\Controllers\Api\CrewController;
@@ -35,4 +36,15 @@ Route::group(['middleware' => 'apitoken'], function () {
     // User API
     Route::apiResource('userlogin', UserLogin::class);
     Route::apiResource('user', User::class);
+});
+
+// JWT Middleware Route
+Route::group(['middleware' => 'jwt.auth'], function ($router) {
+    // Auth
+    Route::post('auth-user-api', [UserLogin::class, 'authUserApi'])->name('login.api');
+    Route::post('logout-api', [UserLogin::class, 'authLogoutApi'])->name('logout.api');
+
+    // Profile
+    Route::get('user-profile-api', [Profile::class, 'userProfileApi']);
+    Route::get('get-available-profiles', [Profile::class, 'getAvailableProfilesApi']);
 });
