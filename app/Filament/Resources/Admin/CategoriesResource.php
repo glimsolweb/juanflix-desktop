@@ -54,7 +54,8 @@ class CategoriesResource extends Resource
                 ImageColumn::make('banner')
                     ->label('Banner'),
                 TextColumn::make('description')
-                    ->label('Description'),
+                    ->label('Description')
+                    ->html(),
             ])
             ->filters([
                 //
