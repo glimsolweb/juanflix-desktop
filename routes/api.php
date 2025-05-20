@@ -36,6 +36,7 @@ Route::group(['middleware' => 'apitoken'], function () {
     // User API
     Route::apiResource('userlogin', UserLogin::class);
     Route::apiResource('user', User::class);
+    Route::put('user/update/{id}', [User::class, 'update']);
 });
 
 // JWT Middleware Route
