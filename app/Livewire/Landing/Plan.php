@@ -14,10 +14,10 @@ class Plan extends Component
         $this->PlanService = $plan_service;
     }
 
-    public function save(PlanService $plan_service)
+    public function save(PlanService $planService)
     {
         $userSelectedPlanId = $this->planSelected;
-        return $plan_service->selectedUserPlan();
+        return $planService->selectedUserPlan($userSelectedPlanId);
     }
 
     public function userPlanSelected()

@@ -16,8 +16,8 @@ class PlanService
         return $this->PlanRepository->fetchAllPlans();
     }
 
-    public function selectedUserPlan()
+    public function selectedUserPlan($userSelectedPlanId)
     {
-        return $this->PlanRepository->saveUserPlan();
+        return $this->PlanRepository->saveUserPlan($userSelectedPlanId);
     }
 }
