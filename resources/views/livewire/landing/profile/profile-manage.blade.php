@@ -5,10 +5,18 @@
         <div class="flex flex-wrap gap-[10px] md:gap-[20px] justify-center my-[50px]">
             @foreach ($profiles as $profile)
                 <div class="flex flex-col gap-y-[10px]">
-                    <img src="{{ asset('storage/' . $profile->profile_icons->image) }}" class="w-[130px] md:w-[150px] h-[130px] md:h-[150px] rounded-[5px] bg-jf-black border border-jf-white3" alt="Profiles">
+                    <a href="">
+                        <img src="{{ asset('storage/' . $profile->profile_icons->image) }}" class="w-[130px] md:w-[150px] h-[130px] md:h-[150px] rounded-[5px] bg-jf-black border border-jf-white3" alt="Profiles">
+                    </a>
                     <p class="text-jf-white3">{{ $profile->name }}</p>
                 </div>
             @endforeach
+            <div class="flex flex-col gap-y-[10px]">
+                <a href="" class="w-[130px] md:w-[150px] h-[130px] md:h-[150px] rounded-[5px] bg-jf-black border border-jf-white3 flex justify-center items-center">
+                    <i class="fa-solid fa-plus text-[4rem]"></i>
+                </a>
+                <p class="text-jf-white3">Add Profile</p>
+            </div>
         </div>
         <div>
             @error('errorMessage')<span class="error my-2 text-jf-red block">{{ $message }}</span>@enderror
