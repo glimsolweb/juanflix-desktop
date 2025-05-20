@@ -21,11 +21,27 @@ class FilmCategorieSeeder extends Seeder
             ],
             [
                 'film_id' => 2,
-                'categories_id' => 1
+                'categories_id' => 3
             ],
             [
                 'film_id' => 3,
-                'categories_id' => 2
+                'categories_id' => 3
+            ],
+            [
+                'film_id' => 4,
+                'categories_id' => 4
+            ],
+            [
+                'film_id' => 5,
+                'categories_id' => 4
+            ],
+            [
+                'film_id' => 6,
+                'categories_id' => 5
+            ],
+            [
+                'film_id' => 7,
+                'categories_id' => 5
             ],
         ];
 
