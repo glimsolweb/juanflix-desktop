@@ -21,7 +21,7 @@ class UserLoginService
     public function authenticateUser($user_validated)
     {
         // Attempt to login the User using given credentials
-        $auth = Auth::attempt(['email' => $user_validated['email'], 'password' => $user_validated['password']]);
+        $auth = auth('api')->attempt(['email' => $user_validated['email'], 'password' => $user_validated['password']]);
         if($auth) {
             // Return with JWT Token
             return $this->UserLoginRepository->respondWithToken($auth);
@@ -36,7 +36,7 @@ class UserLoginService
     {
         try {
             //Logout the user via jwt
-            Auth::logout();
+            auth('api')->logout();
             return response()->json([
                 'message' => 'Successfully logged out'
             ], 200);

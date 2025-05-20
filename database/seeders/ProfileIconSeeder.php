@@ -15,19 +15,19 @@ class ProfileIconSeeder extends Seeder
     {
         $icons = [
             [
-                'image' => '../images/icon-yellow.jpg',
+                'image' => 'uploaded-files/icon-yellow.jpg',
                 'category' => 'Drama'
             ],
             [
-                'image' => '../images/profile1.png',
+                'image' => 'uploaded-files/profile1.png',
                 'category' => 'Drama'
             ],
             [
-                'image' => '../images/profile2.png',
+                'image' => 'uploaded-files/profile2.png',
                 'category' => 'Horror'
             ],
             [
-                'image' => '../images/profile3.png',
+                'image' => 'uploaded-files/profile3.png',
                 'category' => 'Drama'
             ],
         ];
