@@ -18,8 +18,8 @@
                                 </a>
                             </form>
                         @else
-                            <a href="{{ url('/dashboard') }}" class="text-jf-black ml-auto bg-jf-yellow p-[5px_20px] rounded-[5px] font-bold">
-                                Dashboard
+                            <a href="{{ url('/profile-information') }}" class="text-jf-black ml-auto bg-jf-yellow p-[5px_20px] rounded-[5px] font-bold">
+                                Profile
                             </a>
                         @endif
                     @else

@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 use App\Livewire\Landing\Profile\ProfileContent;
 use App\Http\Controllers\User\UserController;
 use App\Livewire\Landing\Profile\ProfileManage;
+use App\Livewire\Landing\ProfileInformation\ProfileSettings;
 use App\Livewire\Landing\VerifyOtp;
 
 // Public Route
@@ -19,12 +20,18 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified','o
     Route::get('/profile', Profile::class)->name('profile');
     Route::get('/profile-content/{profileID}', ProfileContent::class)->name('profile-content');
     Route::get('/profile-manage', ProfileManage::class)->name('profile-manage');
-    Route::get('/plans', Plan::class);
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
 
+    // Plans
+    Route::get('/plans', Plan::class);
+
+    // Otp
     Route::get('/verify-otp', VerifyOtp::class)->name('verify-otp');
+
+    // Profile Information
+    Route::get('profile-information', ProfileSettings::class)->name('profile-information');
+    // Route::get('/dashboard', function () {
+    //     return view('dashboard');
+    // })->name('dashboard');
 });
 
 // Test

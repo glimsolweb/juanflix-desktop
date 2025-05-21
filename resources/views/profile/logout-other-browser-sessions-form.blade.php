@@ -1,6 +1,8 @@
 <x-action-section>
     <x-slot name="title">
-        {{ __('Browser Sessions') }}
+        <div class="text-jf-white">
+            {{ __('Browser Sessions') }}
+        </div>
     </x-slot>
 
     <x-slot name="description">
