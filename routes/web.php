@@ -14,7 +14,7 @@ use App\Livewire\Landing\VerifyOtp;
 Route::get('/', Homepage::class)->name('homepage');
 
 // Authenticated Route
-Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])->group(function () {
+Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified','otpverify'])->group(function () {
     // Profile
     Route::get('/profile', Profile::class)->name('profile');
     Route::get('/profile-content/{profileID}', ProfileContent::class)->name('profile-content');
@@ -24,7 +24,7 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])
         return view('dashboard');
     })->name('dashboard');
 
-    Route::get('/verify-otp', VerifyOtp::class);
+    Route::get('/verify-otp', VerifyOtp::class)->name('verify-otp');
 });
 
 // Test

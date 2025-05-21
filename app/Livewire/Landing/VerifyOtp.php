@@ -12,6 +12,12 @@ class VerifyOtp extends Component
     public $otp1, $otp2, $otp3, $otp4, $otp5, $otp6;
     public $otp;
 
+    public function mount(OtpService $otpService)
+    {
+        // Send the OTP on initial component load
+        $otpService->generateOtp();
+    }
+
     public function submitOtp(OtpService $otpService)
     {
         // Initialize the otp with concatanation
@@ -31,17 +37,14 @@ class VerifyOtp extends Component
             }
             // Redirect to Plan if there is no Subscription
             return $this->redirect('plans');
-
         }
         $this->addError('otp', 'Error Invalid OTP');
     }
 
-    public function render(OtpService $otpService)
+    public function render()
     {
         $user = Auth::user();
-        $generateOtp = $otpService->generateOtp();
-        if($generateOtp){
-        }
+        // dd(session()->all());
         return view('livewire.landing.verify-otp', compact('user'));
     }
 }

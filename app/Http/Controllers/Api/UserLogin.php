@@ -6,16 +6,23 @@ use Illuminate\Http\Request;
 use App\Services\UserLoginService;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UserLoginRequest;
+use App\Services\OtpService;
 
 class UserLogin extends Controller
 {
     protected $UserLoginService;
-    public function __construct(UserLoginService $user_login_service) {
+    protected $OtpService;
+    public function __construct(UserLoginService $user_login_service, OtpService $otpService) {
         $this->UserLoginService = $user_login_service;
+        $this->OtpService = $otpService;
     }
 
+    // Authenticate the user via API
     public function authUserApi()
     {
+        // Generate the OTP on user Auth
+        $this->OtpService->generateOtp();
+        // Return the user Info
         return $this->UserLoginService->showUserInfo();
     }
 

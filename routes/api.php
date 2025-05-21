@@ -11,6 +11,7 @@ use App\Http\Controllers\Api\UserLogin;
 use App\Http\Controllers\Api\CrewController;
 use App\Http\Controllers\Api\GenreController;
 use App\Http\Controllers\Api\CategoryController;
+use App\Http\Controllers\Api\OtpController;
 
 // Route::get('/user', function (Request $request) {
 //     return $request->user();
@@ -48,4 +49,7 @@ Route::group(['middleware' => 'jwt.auth'], function ($router) {
     // Profile
     Route::get('user-profile-api', [Profile::class, 'userProfileApi']);
     Route::get('get-available-profiles', [Profile::class, 'getAvailableProfilesApi']);
+
+    // Otp
+    Route::get('validate-otp-api', [OtpController::class, 'validateUserOtpApi']);
 });
