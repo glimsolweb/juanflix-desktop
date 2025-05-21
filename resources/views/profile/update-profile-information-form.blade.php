@@ -1,13 +1,14 @@
 <x-form-section submit="updateProfileInformation">
-    <x-slot name="title">
-        {{ __('Profile Information') }}
-    </x-slot>
-
-    <x-slot name="description">
-        {{ __('Update your account\'s profile information and email address.') }}
-    </x-slot>
-
     <x-slot name="form">
+        <div class="col-span-6 sm:col-span-4">
+            <x-slot name="title">
+                {{ __('Profile Information') }}
+            </x-slot>
+
+            <x-slot name="description">
+                {{ __('Update your account\'s profile information and email address.') }}
+            </x-slot>
+        </div>
         <!-- Profile Photo -->
         @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
             <div x-data="{photoName: null, photoPreview: null}" class="col-span-6 sm:col-span-4">
@@ -84,12 +85,14 @@
     </x-slot>
 
     <x-slot name="actions">
-        <x-action-message class="me-3" on="saved">
-            {{ __('Saved.') }}
-        </x-action-message>
+        <div class="w-[250px]">
+            <x-action-message class="me-3" on="saved">
+                {{ __('Saved.') }}
+            </x-action-message>
 
-        <x-button wire:loading.attr="disabled" wire:target="photo">
-            {{ __('Save') }}
-        </x-button>
+            <x-button wire:loading.attr="disabled" wire:target="photo">
+                {{ __('Save') }}
+            </x-button>
+        </div>
     </x-slot>
 </x-form-section>
