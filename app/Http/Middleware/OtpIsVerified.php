@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
 
 class OtpIsVerified
@@ -19,8 +20,8 @@ class OtpIsVerified
         if ($request->routeIs('verify-otp')) {
             return $next($request);
         }
-        $isOtpVerified = session()->get('otp_verified');
 
+        $isOtpVerified = session()->get('otp_verified');
         if (!$isOtpVerified) {
             return redirect()->route('verify-otp');
         }
