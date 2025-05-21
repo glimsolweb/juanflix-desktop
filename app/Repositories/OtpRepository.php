@@ -19,7 +19,7 @@ class OtpRepository
                 'otp' => $generateOtp,
                 'otp_expires' => now()->addMinutes(5)
             ]);
-            Mail::to($user->email)->send(new VerifyOtpMail($generateOtp, $user->name));
+            // Mail::to($user->email)->send(new VerifyOtpMail($generateOtp, $user->name));
             return $saveOtp;
         } catch (\Throwable $th) {
             return response()->json([
@@ -32,6 +32,8 @@ class OtpRepository
     {
         $userOtp = Auth::user()->otp;
         if($enteredOtp == $userOtp){
+            // Update the session token
+            session(['otp_verified' => true]);
             return true;
         }
         return false;

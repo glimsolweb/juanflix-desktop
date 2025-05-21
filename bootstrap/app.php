@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Middleware\ApiToken;
+use App\Http\Middleware\OtpIsVerified;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
@@ -22,7 +23,8 @@ return Application::configure(basePath: dirname(__DIR__))
     ->withMiddleware(function (Middleware $middleware) {
         //
         $middleware->alias([
-            'apitoken' => ApiToken::class
+            'apitoken' => ApiToken::class,
+            'otpverify' => OtpIsVerified::class,
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {

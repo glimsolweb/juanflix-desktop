@@ -9,9 +9,19 @@
             @if (Route::has('login'))
                 <nav class="flex items-center justify-end gap-4">
                     @auth
-                        <a href="{{ url('/dashboard') }}" class="text-jf-black ml-auto bg-jf-yellow p-[5px_20px] rounded-[5px] font-bold">
-                            Dashboard
-                        </a>
+                        @if (request()->routeIs('verify-otp'))
+                            <!-- Logout -->
+                            <form method="POST" action="{{ route('logout') }}" x-data>
+                                @csrf
+                                <a href="{{ route('logout') }}" @click.prevent="$root.submit();" class="text-jf-black ml-auto bg-jf-yellow p-[5px_20px] rounded-[5px] font-bold">
+                                    Logout
+                                </a>
+                            </form>
+                        @else
+                            <a href="{{ url('/dashboard') }}" class="text-jf-black ml-auto bg-jf-yellow p-[5px_20px] rounded-[5px] font-bold">
+                                Dashboard
+                            </a>
+                        @endif
                     @else
                         <a href="{{ route('login') }}" class="text-jf-black ml-auto bg-jf-yellow p-[5px_20px] rounded-[5px] font-bold">
                             Sign In
