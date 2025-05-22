@@ -1,6 +1,6 @@
 <x-guest-layout>
         <div class="md:w-[550px] w-full m-auto py-[20px] md:py-[100px] px-[50px]">
-            <div class="flex flex-col items-center">
+            <div class="flex flex-col items-center text-center">
                 <h1 class="text-[1.2rem] font-bold text-jf-white">STEP 1 OF 3</h1>
                 <h1 class="font-bold text-[2.5rem] text-jf-yellow">LET'S GET STARTED!</h1>
                 <p class="text-jf-white2 mb-[50px]">Sign up to get started and enjoy exclusive features.</p>

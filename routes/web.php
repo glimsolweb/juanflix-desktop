@@ -9,6 +9,7 @@ use App\Http\Controllers\User\UserController;
 use App\Livewire\Landing\Profile\ProfileManage;
 use App\Livewire\Landing\ProfileInformation\ProfileSettings;
 use App\Livewire\Landing\VerifyOtp;
+use App\Livewire\Landing\WelcomeNewUser;
 
 // Public Route
 // Landing Page
@@ -29,6 +30,10 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified','o
 
     // Profile Information
     Route::get('profile-information', ProfileSettings::class)->name('profile-information');
+
+    // Welcome New User
+    Route::get('welcome-user', WelcomeNewUser::class)->name('welcome-user');
+
     // Route::get('/dashboard', function () {
     //     return view('dashboard');
     // })->name('dashboard');
