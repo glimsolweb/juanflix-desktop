@@ -3,7 +3,7 @@
             <div class="flex flex-col items-center text-center">
                 <h1 class="text-[1.2rem] font-bold text-jf-white">STEP 1 OF 3</h1>
                 <h1 class="font-bold text-[2.5rem] text-jf-yellow">LET'S GET STARTED!</h1>
-                <p class="text-jf-white2 mb-[50px]">Sign up to get started and enjoy exclusive features.</p>
+                <p class="text-jf-white2 mb-[50px]">Sign up to get started and enjoy exclusive films.</p>
             </div>
             <x-validation-errors class="mb-4" />
 
