@@ -1,7 +1,7 @@
 <x-guest-layout>
         <div class="md:w-[550px] w-full m-auto py-[20px] md:py-[100px] px-[50px]">
             <div class="flex flex-col items-center text-center">
-                <h1 class="font-bold text-[2.5rem] text-jf-yellow">Sign In</h1>
+                <h1 class="font-bold text-[2.5rem] text-jf-yellow">SIGN IN</h1>
                 <p class="text-jf-white2 mb-[50px]">Log in quickly using your preferred method.</p>
             </div>
 
