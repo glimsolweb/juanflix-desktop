@@ -7,6 +7,6 @@
         <p>You're all set to watch your favorite films. Please go back to the app and sign in.</p>
     </div>
     <div class="flex text-jf-black md:gap-x-[20px] mt-[150px] flex-wrap flex-col md:flex-row gap-[10px] w-full justify-center">
-        <a href="{{ route('homepage') }}" class="bg-jf-yellow py-[10px] px-[50px] rounded-[5px] font-bold">CONTINUE</a>
+        <a href="{{ route('homepage') }}" class="bg-jf-yellow py-[10px] px-[50px] rounded-[5px] font-bold text-center">CONTINUE</a>
     </div>
 </div>

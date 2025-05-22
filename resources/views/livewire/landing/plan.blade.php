@@ -1,11 +1,11 @@
-<div class="container mx-auto my-[50px]">
+<div class="container mx-auto my-[50px] px-[10px]">
     <div class="text-center mx-auto">
         <h1 class="text-[1.2rem] font-bold text-jf-white">STEP 2 OF 3</h1>
         <h1 class="text-[2.5rem] font-bold text-jf-yellow">SELECT YOUR PLAN</h1>
         <p>Choose your best subscription plan.</p>
     </div>
     <form wire:submit="save">
-        <div class="flex flex-row flex-wrap my-[50px] gap-x-[10px] justify-center">
+        <div class="flex flex-row flex-wrap my-[50px] gap-[10px] justify-center">
             @foreach ($plans as $plan)
                 <label class="w-full md:w-[calc(25%-10px)] border border-jf-white p-[20px] rounded-[5px] hover:border-jf-yellow hover:cursor-pointer
                 {{ $planSelected == $plan->id ? 'border-jf-yellow border-2' : 'border-jf-white' }}
