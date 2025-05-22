@@ -1,12 +1,12 @@
 <div>
     <section class="main-section h-dvh flex items-center bg-hero">
-        <div class="text-center mx-auto container px-[10px]">
-            <h1 class="text-[3.5rem] leading-[normal] mb-[1rem] font-CreatoDisplayExtraBold">Stream The Best Picks,<br>
+        <div class="text-center mx-auto container px-[10px] -mt-[170px] md:mt-0">
+            <h1 class="text-[2rem] md:text-[3.5rem] leading-[normal] mb-[1rem] font-CreatoDisplayExtraBold">Stream The Best Picks,<br>
                 Personalized For You
             </h1>
-            <p class="text-jf-yellow mb-[2rem] text-[1.2rem] font-CreatoDisplayMedium">START YOUR JOURNEY TODAY!</p>
+            <p class="text-jf-yellow mb-[80px] md:mb-[2rem] text-[1.2rem] font-CreatoDisplayMedium">START YOUR JOURNEY TODAY!</p>
             <p>Worthwhile Watching, Just for You!</p>
-            <p>Enter your email to start or continue yor JUANFLIX membership!</p>
+            <p>Enter your email to start or continue your <br> JuanFlix membership!</p>
 
             <div class="flex mt-[30px] gap-x-[10px] font-CreatoDisplayBold max-w-[600px] mx-auto">
                 <div class="relative flex w-full items-center gap-1">
