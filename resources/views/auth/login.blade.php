@@ -1,6 +1,6 @@
 <x-guest-layout>
         <div class="md:w-[550px] w-full m-auto py-[20px] md:py-[100px] px-[50px]">
-            <div class="flex flex-col items-center">
+            <div class="flex flex-col items-center text-center">
                 <h1 class="font-bold text-[2.5rem] text-jf-yellow">Sign In</h1>
                 <p class="text-jf-white2 mb-[50px]">Log in quickly using your preferred method.</p>
             </div>
@@ -32,7 +32,7 @@
                         </label>
                     </div>
                     @if (Route::has('password.request'))
-                        <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('password.request') }}">
+                        <a class="underline text-sm text-gray-600 hover:text-jf-yellow rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('password.request') }}">
                             {{ __('Forgot your password?') }}
                         </a>
                     @endif

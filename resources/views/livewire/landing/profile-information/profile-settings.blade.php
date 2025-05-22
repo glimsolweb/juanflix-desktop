@@ -1,5 +1,5 @@
 <div>
-    <div class="container mx-auto py-[50px]">
+    <div class="container mx-auto py-[50px] px-[10px]">
         <h1>Account</h1>
         <div class="flex flex-row flex-wrap gap-[50px]">
             <div class="w-full md:w-[calc(25%-25px)]">

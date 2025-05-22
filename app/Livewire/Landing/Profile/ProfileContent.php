@@ -27,7 +27,7 @@ class ProfileContent extends Component
         // Call the function to save profile on Database
         $profile = $ProfileService->saveUserPreferences($this->profileID, $this->content_genre_id);
         if ($profile) {
-            $this->redirectRoute('homepage');
+            $this->redirectRoute('welcome-user');
         }
         return redirect()->back()->withErrors('something went wrong or no login user');
     }
