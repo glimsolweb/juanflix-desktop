@@ -19,27 +19,27 @@ class GenreSeeder extends Seeder
         $genres = [
             [
                 'name' => 'Action',
-                'genre_icon' => 'images/action.svg'
+                'genre_icon' => 'uploaded-files/action.svg'
             ],
             [
                 'name' => 'Comedy',
-                'genre_icon' => 'images/comedy.svg'
+                'genre_icon' => 'uploaded-files/comedy.svg'
             ],
             [
                 'name' => 'Documentary',
-                'genre_icon' => 'images/documentary.svg'
+                'genre_icon' => 'uploaded-files/documentary.svg'
             ],
             [
                 'name' => 'Drama',
-                'genre_icon' => 'images/drama.svg'
+                'genre_icon' => 'uploaded-files/drama.svg'
             ],
             [
                 'name' => 'Sci-Fi',
-                'genre_icon' => 'images/scifi.svg'
+                'genre_icon' => 'uploaded-files/scifi.svg'
             ],
             [
                 'name' => 'Kids and Family',
-                'genre_icon' => 'images/kids-family.svg'
+                'genre_icon' => 'uploaded-files/kids-family.svg'
             ]
         ];
         foreach ($genres as $genre) {
