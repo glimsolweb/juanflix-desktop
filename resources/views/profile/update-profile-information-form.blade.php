@@ -6,7 +6,7 @@
             </x-slot>
 
             <x-slot name="description">
-                {{ __('Update your account\'s profile information and email address.') }}
+                {{ __('Edit info, change password, or cancel anytime.') }}
             </x-slot>
         </div>
         <!-- Profile Photo -->
@@ -53,40 +53,83 @@
             </div>
         @endif
 
-        <!-- Name -->
-        <div class="col-span-6 sm:col-span-4">
-            <x-label for="name" value="{{ __('Name') }}" />
-            <x-input id="name" type="text" class="mt-1 block w-full text-jf-gray" wire:model="state.name" required autocomplete="name" />
-            <x-input-error for="name" class="mt-2" />
-        </div>
+        <div class="flex flex-wrap gap-[10px]">
+            <!-- Name -->
+            <div class="w-full md:w-[calc(33%-5px)]">
+                <x-label for="name" value="{{ __('Name') }}" class="text-jf-white3" />
+                <x-input id="name" type="text" class="mt-1 block w-full bg-jf-gray3" wire:model="state.name" required autocomplete="name" />
+                <x-input-error for="name" class="mt-2" />
+            </div>
 
-        <!-- Email -->
-        <div class="col-span-6 sm:col-span-4">
-            <x-label for="email" value="{{ __('Email') }}" />
-            <x-input id="email" type="email" class="mt-1 block w-full text-jf-gray" wire:model="state.email" required autocomplete="username" />
-            <x-input-error for="email" class="mt-2" />
+            <!-- Email -->
+            <div class="w-full md:w-[calc(33%-5px)]">
+                <x-label for="email" value="{{ __('Email Address') }}" class="text-jf-white3" />
+                <x-input id="email" type="email" class="mt-1 block w-full bg-jf-gray3" wire:model="state.email" required autocomplete="username" />
+                <x-input-error for="email" class="mt-2" />
 
-            @if (Laravel\Fortify\Features::enabled(Laravel\Fortify\Features::emailVerification()) && ! $this->user->hasVerifiedEmail())
-                <p class="text-sm mt-2">
-                    {{ __('Your email address is unverified.') }}
+                @if (Laravel\Fortify\Features::enabled(Laravel\Fortify\Features::emailVerification()) && ! $this->user->hasVerifiedEmail())
+                    <p class="text-sm mt-2">
+                        {{ __('Your email address is unverified.') }}
 
-                    <button type="button" class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" wire:click.prevent="sendEmailVerification">
-                        {{ __('Click here to re-send the verification email.') }}
-                    </button>
-                </p>
-
-                @if ($this->verificationLinkSent)
-                    <p class="mt-2 font-medium text-sm text-green-600">
-                        {{ __('A new verification link has been sent to your email address.') }}
+                        <button type="button" class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" wire:click.prevent="sendEmailVerification">
+                            {{ __('Click here to re-send the verification email.') }}
+                        </button>
                     </p>
+
+                    @if ($this->verificationLinkSent)
+                        <p class="mt-2 font-medium text-sm text-green-600">
+                            {{ __('A new verification link has been sent to your email address.') }}
+                        </p>
+                    @endif
                 @endif
-            @endif
+            </div>
+
+            <!-- Gender -->
+            <div class="w-full md:w-[calc(33%-5px)]">
+                <x-label for="gender" value="{{ __('Gender') }}" class="text-jf-white3" />
+                <flux:select id="gender" name="gender" wire:model="state.gender" placeholder="Select Gender..." class="!bg-jf-gray3 !border-gray-300 hover:cursor-pointer mt-1 rounded-md" required>
+                    <flux:select.option>Male</flux:select.option>
+                    <flux:select.option>Female</flux:select.option>
+                    <flux:select.option>Other</flux:select.option>
+                </flux:select>
+                <x-input-error for="gender" class="mt-2" />
+            </div>
+
+            <!-- Date of Birth -->
+            <div class="w-full md:w-[calc(33%-5px)]">
+                <x-label for="birth_date" value="{{ __('Date of Birth') }}" class="text-jf-white3" />
+                <x-input id="birth_date" type="date" class="mt-1 block w-full bg-jf-gray3" wire:model="state.birth_date" required autocomplete="birth_date" />
+                <x-input-error for="birth_date" class="mt-2" />
+            </div>
+
+            <!-- City -->
+            <div class="w-full md:w-[calc(33%-5px)]">
+                <x-label for="city" value="{{ __('City') }}" class="text-jf-white3" />
+                <flux:select id="city" name="city" wire:model="state.city" placeholder="Choose City..." class="!bg-jf-gray3 !border-gray-300 hover:cursor-pointer mt-1 rounded-md" required>
+                    <flux:select.option>Caloocan City</flux:select.option>
+                    <flux:select.option>Las Pinas City</flux:select.option>
+                    <flux:select.option>Makati City</flux:select.option>
+                    <flux:select.option>Malabon City</flux:select.option>
+                    <flux:select.option>Mandaluyong City</flux:select.option>
+                    <flux:select.option>Marikina City</flux:select.option>
+                    <flux:select.option>Muntinlupa City</flux:select.option>
+                    <flux:select.option>Navotas City</flux:select.option>
+                    <flux:select.option>Paranaque City</flux:select.option>
+                    <flux:select.option>Pasay City</flux:select.option>
+                    <flux:select.option>Quezon City</flux:select.option>
+                    <flux:select.option>Pasig City</flux:select.option>
+                    <flux:select.option>San Juan City</flux:select.option>
+                    <flux:select.option>Taguig City</flux:select.option>
+                    <flux:select.option>Valenzuela City</flux:select.option>
+                </flux:select>
+                <x-input-error for="city" class="mt-2" />
+            </div>
         </div>
     </x-slot>
 
     <x-slot name="actions">
-        <div class="w-[250px]">
-            <x-action-message class="me-3" on="saved">
+        <div class="w-full md:w-[250px]">
+            <x-action-message class="me-3 mb-4 font-medium text-sm text-green-600" on="saved">
                 {{ __('Saved.') }}
             </x-action-message>
 

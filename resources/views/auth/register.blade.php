@@ -19,6 +19,39 @@
                 </div>
 
                 <div class="mt-4">
+                    <flux:select name="gender" placeholder="Select Gender" class="!bg-jf-black !border-gray-300 hover:cursor-pointer" required>
+                        <flux:select.option>Male</flux:select.option>
+                        <flux:select.option>Female</flux:select.option>
+                        <flux:select.option>Other</flux:select.option>
+                    </flux:select>
+                </div>
+
+                <div class="mt-4">
+                    <x-label for="birth_date" value="{{ __('Date of Birth') }}" class="text-jf-white3" />
+                    <x-input id="birth_date" class="block mt-1 w-full bg-jf-black" type="date" :max="now()->toDateString()" name="birth_date" :value="old('birth_date')" required autofocus autocomplete="birth_date" placeholder="Birth Date" />
+                </div>
+
+                <div class="mt-4">
+                    <flux:select name="city" placeholder="Choose City" class="!bg-jf-black !border-gray-300 hover:cursor-pointer" required>
+                        <flux:select.option>Caloocan City</flux:select.option>
+                        <flux:select.option>Las Pinas City</flux:select.option>
+                        <flux:select.option>Makati City</flux:select.option>
+                        <flux:select.option>Malabon City</flux:select.option>
+                        <flux:select.option>Mandaluyong City</flux:select.option>
+                        <flux:select.option>Marikina City</flux:select.option>
+                        <flux:select.option>Muntinlupa City</flux:select.option>
+                        <flux:select.option>Navotas City</flux:select.option>
+                        <flux:select.option>Paranaque City</flux:select.option>
+                        <flux:select.option>Pasay City</flux:select.option>
+                        <flux:select.option>Quezon City</flux:select.option>
+                        <flux:select.option>Pasig City</flux:select.option>
+                        <flux:select.option>San Juan City</flux:select.option>
+                        <flux:select.option>Taguig City</flux:select.option>
+                        <flux:select.option>Valenzuela City</flux:select.option>
+                    </flux:select>
+                </div>
+
+                <div class="mt-4">
                     <x-input id="password" class="block mt-1 w-full bg-jf-black" type="password" name="password" required autocomplete="new-password" placeholder="Enter Your Password" />
                 </div>
 
