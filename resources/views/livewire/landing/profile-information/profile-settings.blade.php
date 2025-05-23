@@ -1,8 +1,8 @@
 <div>
     <div class="container mx-auto py-[50px] px-[10px]">
-        <h1>Account</h1>
+        {{-- <h1>Account</h1> --}}
         <div class="flex flex-row flex-wrap gap-[50px]">
-            <div class="w-full md:w-[calc(25%-25px)]">
+            <div class="w-full md:w-[calc(25%-25px)] {{ $sidebar }}">
                 <div class="flex flex-col py-5">
                     <h2 class="font-CreatoDisplayBold text-jf-yellow text-[1.5rem]">Manage Profiles</h2>
                     <p class="text-jf-white3 mb-5">Switch, manage or add profiles.</p>
@@ -50,7 +50,10 @@
                 </div>
                 {{-- <p>{{ $selectedTab }}</p> --}}
             </div>
-            <div class="w-full md:w-[calc(75%-25px)] flex flex-col gap-[20px]">
+            <div class="w-full md:w-[calc(75%-25px)] flex-col gap-[20px] {{ $panel }}">
+                <button type="button" class="md:hidden block w-max" wire:click='backToMenu()'>
+                    <i class="fa-solid fa-arrow-left text-[2rem] hover:text-jf-yellow"></i>
+                </button>
                 @switch($selectedTab)
                     @case('account-information')
                         @if (Laravel\Fortify\Features::canUpdateProfileInformation())
