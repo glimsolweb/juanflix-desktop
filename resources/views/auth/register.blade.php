@@ -28,7 +28,7 @@
 
                 <div class="mt-4">
                     <x-label for="birth_date" value="{{ __('Date of Birth') }}" class="text-jf-white3" />
-                    <x-input id="birth_date" class="block mt-1 w-full bg-jf-black" type="date" :max="now()->toDateString()" name="birth_date" :value="old('birth_date')" required autofocus autocomplete="birth_date" placeholder="Birth Date" />
+                    <flux:input id="birth_date" class:input="block mt-1 w-full !bg-jf-black !border-gray-300 hover:cursor-pointer" class="" type="date" :max="now()->toDateString()" name="birth_date" :value="old('birth_date')" required autofocus />
                 </div>
 
                 <div class="mt-4">
