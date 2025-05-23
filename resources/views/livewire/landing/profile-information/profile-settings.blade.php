@@ -66,7 +66,7 @@
                             </div>
                         @endif
                         {{-- My Plan --}}
-                        {{-- @livewire('landing.profile-information.account-information.profile-plan') --}}
+                        @livewire('landing.profile-information.account-information.profile-plan')
                         @break
                     @case('security-privacy')
                         @if (Laravel\Fortify\Features::canManageTwoFactorAuthentication())
@@ -94,6 +94,8 @@
                                 @livewire('profile.update-password-form')
                             </div>
                         @endif
+                        {{-- My Plan --}}
+                        @livewire('landing.profile-information.account-information.profile-plan')
                         @break
                 @endswitch
             </div>
