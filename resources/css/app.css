@@ -13,6 +13,8 @@
 
 /* Global CSS */
 *, html{ color: white; font-family: 'CreatoDisplay-Regular';}
+.show{ display: block !important;}
+.hide{ display: none !important;}
 
 /* CreatoDisplay Font */
 @font-face {
