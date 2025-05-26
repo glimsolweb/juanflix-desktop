@@ -20,4 +20,9 @@ class PlanService
     {
         return $this->PlanRepository->saveUserPlan($userSelectedPlanId);
     }
+
+    public function userPlan()
+    {
+        return $this->PlanRepository->getAuthUserPlan();
+    }
 }

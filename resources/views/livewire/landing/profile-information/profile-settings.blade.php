@@ -65,6 +65,7 @@
                                 @livewire('profile.update-password-form')
                             </div>
                         @endif
+                        <hr>
                         {{-- My Plan --}}
                         @livewire('landing.profile-information.account-information.profile-plan')
                         @break
@@ -94,6 +95,7 @@
                                 @livewire('profile.update-password-form')
                             </div>
                         @endif
+                        <hr>
                         {{-- My Plan --}}
                         @livewire('landing.profile-information.account-information.profile-plan')
                         @break

@@ -1,8 +1,8 @@
 <x-guest-layout>
     <div class="md:w-[550px] w-full m-auto py-[20px] md:py-[100px] px-[50px]">
         <div class="flex flex-col items-center text-center">
-            <h1 class="font-bold text-[2.5rem] text-jf-yellow">SET PASSWORD</h1>
-            <p class="text-jf-white2 mb-[50px]">Password should be between 8-20 letters, numerals, or symbols.</p>
+            <h1 class="font-bold text-[2.5rem] text-jf-yellow">RESET PASSWORD</h1>
+            <p class="text-jf-white2 mb-[50px]">Almost done, enter your new password<br> and you're all set to go!</p>
         </div>
 
         <x-validation-errors class="mb-4" />
@@ -29,7 +29,7 @@
 
             <div class="flex items-center justify-end mt-4">
                 <x-button>
-                    {{ __('UPDATED PASSWORD') }}
+                    {{ __('CONFIRM') }}
                 </x-button>
             </div>
         </form>
