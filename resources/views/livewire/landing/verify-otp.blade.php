@@ -1,4 +1,4 @@
-<div class="container mx-auto my-[50px]">
+<div class="container mx-auto my-[50px]" wire:poll.1000ms='decrementCounter'>
     <div class="text-center mx-auto">
         <h1 class="text-[2.5rem] font-bold text-jf-yellow">VERIFY YOUR ACCOUNT</h1>
         <p>Enter the code from the email we sent to {{ $user->email }}</p>
@@ -42,8 +42,12 @@
                 />
             </div>
             <div class="flex flex-row justify-center mt-[30px] gap-x-[5px]">
-                {{-- <p>Didn't get the code?</p>
-                <button type="button" class="text-jf-yellow">Resend (in 42 sec)</button> --}}
+                <p>Didn't get the code?</p>
+                @if ($otpCounter > 0)
+                    <button type="button" class="text-jf-yellow cursor-not-allowed" disabled>Resend (in {{ $otpCounter }} sec)</button>
+                @else
+                    <button type="button" class="text-jf-yellow" wire:click='resendOtp'>Resend Code</button>
+                @endif
             </div>
             <div>
                 @error('otp')<span class="error my-2 text-jf-red block">{{ $message }}</span>@enderror

@@ -15,28 +15,17 @@ class OtpRepository
         try {
             //code...
             $user = Auth::user();
-            $canSendOtp = $this->canSendOtp($user);
-            if($canSendOtp){
-                $saveOtp = $user->update([
-                    'otp' => $generateOtp,
-                    'otp_expires' => now()->addMinutes(5)
-                ]);
-                Mail::to($user->email)->send(new VerifyOtpMail($generateOtp, $user->name));
-                return $saveOtp;
-            }
+            $saveOtp = $user->update([
+                'otp' => $generateOtp,
+                'otp_expires' => now()->addMinutes(1)
+            ]);
+            // Mail::to($user->email)->send(new VerifyOtpMail($generateOtp, $user->name));
+            return $saveOtp;
         } catch (\Throwable $th) {
             return response()->json([
                 'message' => $th
             ], 404);;
         }
-    }
-
-    public function canSendOtp($user)
-    {
-        if ($user->otp_expires <= now()) {
-            return true;
-        }
-        return false;
     }
 
     public function validateUserOtp($enteredOtp)

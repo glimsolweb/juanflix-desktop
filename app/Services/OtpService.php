@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use App\Repositories\OtpRepository;
+use Illuminate\Support\Facades\Auth;
 
 class OtpService
 {
@@ -13,8 +14,33 @@ class OtpService
 
     public function generateOtp()
     {
+        $user = Auth::user();
         $generateOtp = random_int(111111, 999999);
-        return $this->OtpRepository->saveOtp($generateOtp);
+        // Check if current Auth user can sendOtp
+        $canSendOtp = $this->canSendOtp($user);
+        if($canSendOtp){
+            return $this->OtpRepository->saveOtp($generateOtp);
+        }
+        return false;
+    }
+
+    public function canSendOtp($user)
+    {
+        if ($user->otp_expires <= now()) {
+            return true;
+        }
+        return false;
+    }
+
+    public function resendCounter()
+    {
+        $user = Auth::user();
+        $dateInterval = now()->diff($user->otp_expires);
+        // Return the remaining time of otp
+        if(now()->lessThan($user->otp_expires)){
+            return $dateInterval->minutes . ':' . $dateInterval->seconds;
+        }
+        return 0;
     }
 
     public function validateOtp($enteredOtp)
