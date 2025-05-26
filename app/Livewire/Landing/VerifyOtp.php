@@ -11,6 +11,7 @@ class VerifyOtp extends Component
 {
     public $otp1, $otp2, $otp3, $otp4, $otp5, $otp6;
     public $otp;
+    public $otpCounter;
 
     public function mount(OtpService $otpService)
     {
@@ -39,6 +40,17 @@ class VerifyOtp extends Component
             return $this->redirect('plans');
         }
         $this->addError('otp', 'Error Invalid OTP');
+    }
+
+    public function resendOtp(OtpService $otpService)
+    {
+        // Send the OTP
+        $otpService->generateOtp();
+    }
+
+    public function decrementCounter(OtpService $otpService)
+    {
+        $this->otpCounter = $otpService->resendCounter();
     }
 
     public function render()
