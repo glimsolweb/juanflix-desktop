@@ -2,19 +2,23 @@
 
 namespace App\Jobs;
 
-use Illuminate\Contracts\Queue\ShouldQueue;
+use App\Mail\CancelMembershipMail;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Foundation\Queue\Queueable;
+use Illuminate\Contracts\Queue\ShouldQueue;
 
 class CancelMembershipMailJob implements ShouldQueue
 {
     use Queueable;
 
+    public $email;
+
     /**
      * Create a new job instance.
      */
-    public function __construct()
+    public function __construct($email)
     {
-        //
+        $this->email = $email;
     }
 
     /**
@@ -22,6 +26,6 @@ class CancelMembershipMailJob implements ShouldQueue
      */
     public function handle(): void
     {
-        //
+        Mail::to($this->email)->send(new CancelMembershipMail);
     }
 }
