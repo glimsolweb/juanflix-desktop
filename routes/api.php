@@ -52,4 +52,5 @@ Route::group(['middleware' => 'jwt.auth'], function ($router) {
 
     // Otp
     Route::get('validate-otp-api', [OtpController::class, 'validateUserOtpApi']);
+    Route::get('resend-otp-api', [OtpController::class, 'resendUserOtpApi']);
 });

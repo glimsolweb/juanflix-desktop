@@ -87,7 +87,8 @@ class User extends Authenticatable implements JWTSubject
 
     public function plan(): BelongsToMany
     {
-        return $this->belongsToMany(Plan::class, 'subscriptions');
+        return $this->belongsToMany(Plan::class, 'subscriptions')
+            ->wherePivotNull('deleted_at');
     }
 
 }

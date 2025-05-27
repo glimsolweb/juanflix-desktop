@@ -2,10 +2,12 @@
 
 namespace App\Repositories;
 
+use App\Mail\CancelMembershipMail;
 use App\Models\Plan;
 use App\Models\User;
 use App\Models\Subscription;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class PlanRepository
 {
@@ -19,8 +21,7 @@ class PlanRepository
         try {
             $user = Auth::user();
             $userPlan = User::where('id', $user->id)->with('plan')->first();
-            // dd($userPlan);
-            return 1;
+            return $userPlan;
         } catch (\Throwable $th) {
             return response()->json([
                 'message' => $th
@@ -38,6 +39,23 @@ class PlanRepository
                 ['plan_id' => $userSelectedPlanId],
             );
             return redirect()->route('profile');
+        } catch (\Throwable $th) {
+            return response()->json([
+                'message' => $th
+            ], 400);
+        }
+    }
+
+    public function cancelPlan()
+    {
+        try {
+            // Save user selected subscription plan
+            $user = Auth::user();
+            $cancelPlan = Subscription::where('user_id', $user->id)->first();
+            Mail::to($user->email)->send(new CancelMembershipMail);
+            // Remove current Plan
+            // return $cancelPlan->delete();
+            return true;
         } catch (\Throwable $th) {
             return response()->json([
                 'message' => $th
