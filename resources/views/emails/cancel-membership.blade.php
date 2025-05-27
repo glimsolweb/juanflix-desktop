@@ -1,4 +1,5 @@
 <div>
+    <img src="https://juanflix.com.ph/images/juanflix/LOGO_JUANFLIX.png" alt="Juanflix_Logo">
     <p><strong>Your Account has been canceled</strong></p>
 
     <p>You're receiving this message because you recently <br> cancel your JuanFlix account.</p>
