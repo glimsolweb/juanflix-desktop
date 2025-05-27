@@ -25,4 +25,9 @@ class PlanService
     {
         return $this->PlanRepository->getAuthUserPlan();
     }
+
+    public function cancelUserPlan()
+    {
+        return $this->PlanRepository->cancelPlan();
+    }
 }

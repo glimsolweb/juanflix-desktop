@@ -21,4 +21,17 @@ class OtpController extends Controller
         $isValidateOtp = $this->OtpService->validateOtp($userInput['otp']);
         return $isValidateOtp;
     }
+
+    public function resendUserOtpApi()
+    {
+        $resendOtp = $this->OtpService->generateOtp();
+        if ($resendOtp) {
+            return response()->json([
+                'message' => 'Otp Successfully Resend'
+            ], 200);
+        }
+        return response()->json([
+            'message' => 'Unable to resend OTP. Please wait 5 minutes before requesting a new one.'
+        ], 400);
+    }
 }

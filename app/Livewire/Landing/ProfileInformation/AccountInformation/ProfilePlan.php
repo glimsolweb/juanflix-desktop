@@ -7,10 +7,17 @@ use Livewire\Component;
 
 class ProfilePlan extends Component
 {
+    public $plan;
+
+    public function redirectCancelMembership()
+    {
+        $this->redirect('cancel-membership');
+    }
+
     public function render(PlanService $planService)
     {
         $plan = $planService->userPlan();
-        // dd($plan);
+        $this->plan = $plan->plan->first();
         return view('livewire.landing.profile-information.account-information.profile-plan');
     }
 }

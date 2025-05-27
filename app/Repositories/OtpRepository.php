@@ -19,7 +19,7 @@ class OtpRepository
                 'otp' => $generateOtp,
                 'otp_expires' => now()->addMinutes(1)
             ]);
-            Mail::to($user->email)->send(new VerifyOtpMail($generateOtp, $user->name));
+            // Mail::to($user->email)->send(new VerifyOtpMail($generateOtp, $user->name));
             return $saveOtp;
         } catch (\Throwable $th) {
             return response()->json([
