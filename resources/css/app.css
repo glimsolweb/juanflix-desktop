@@ -15,6 +15,14 @@
 *, html{ color: white; font-family: 'CreatoDisplay-Regular';}
 .show{ display: block !important;}
 .hide{ display: none !important;}
+/* Button */
+button.active span, button.active i{
+    @apply text-jf-black
+}
+
+button.active{
+    @apply bg-jf-yellow;
+}
 
 /* CreatoDisplay Font */
 @font-face {

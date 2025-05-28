@@ -53,8 +53,9 @@ class PlanRepository
             // Save user selected subscription plan
             $user = Auth::user();
             $cancelPlan = Subscription::where('user_id', $user->id)->first();
-            Mail::to($user->email)->send(new CancelMembershipMail);
-            // dispatch(new CancelMembershipMailJob($user->email));
+            // Mail::to($user->email)->send(new CancelMembershipMail);
+            // Send the Email via Job
+            dispatch(new CancelMembershipMailJob($user->email));
             // Remove current Plan
             // return $cancelPlan->delete();
             return true;

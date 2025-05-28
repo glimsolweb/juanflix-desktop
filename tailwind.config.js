@@ -11,6 +11,7 @@ export default {
         './vendor/laravel/jetstream/**/*.blade.php',
         './storage/framework/views/*.php',
         './resources/views/**/*.blade.php',
+        './resources/views/livewire/**/*.blade.php',
     ],
 
     theme: {
@@ -32,7 +33,7 @@ export default {
                 'jf-red' : '#ff4949',
                 'jf-gray' : '#737373',
                 'jf-gray2' : '#434343',
-                'jf-gray3' : '#262626 ',
+                'jf-gray3' : '#262626',
                 'jf-gray-transparent' : '#262626B3',
             }
         },

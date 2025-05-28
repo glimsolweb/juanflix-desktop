@@ -6,9 +6,17 @@ use Livewire\Component;
 
 class ProfileSettings extends Component
 {
-    public $selectedTab = 'profile';
-    public $sidebar = 'block';
-    public $panel = 'hidden md:flex';
+    public $selectedTab;
+    public $sidebar;
+    public $panel;
+
+    public function mount()
+    {
+        $this->selectedTab = 'profile';
+        $this->sidebar = 'block';
+        $this->panel = 'hidden md:block';
+    }
+
     public function selectNav($tab)
     {
         $this->selectedTab = $tab;
@@ -19,7 +27,7 @@ class ProfileSettings extends Component
     public function backToMenu()
     {
         $this->sidebar = 'block';
-        $this->panel = 'hidden md:flex';
+        $this->panel = 'hidden md:block';
     }
 
     public function render()

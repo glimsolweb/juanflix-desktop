@@ -28,14 +28,14 @@
                     <h2 class="font-CreatoDisplayBold text-jf-yellow text-[1.5rem]">Settings</h2>
                     <p class="text-jf-white3 mb-5">Edit info, change password, or cancel anytime.</p>
                     <div class="flex flex-col rounded-[5px] gap-[5px]">
-                        <button type="button" wire:click="selectNav('account-information')" class="px-[20px] py-[10px] rounded-[5px] bg-jf-gray2 flex flex-row items-center gap-x-[10px] group">
+                        <button type="button" wire:click="selectNav('account-information')" class="{{ $selectedTab === 'account-information' ? 'bg-jf-yellow active' : '' }} px-[20px] py-[10px] rounded-[5px] bg-jf-gray2 flex flex-row items-center gap-x-[10px] group">
                             <i class="fa-solid fa-circle-user text-[1.2rem]"></i><span class="group-hover:underline">Account Information</span> <i class="fa-solid fa-chevron-right ml-auto"></i>
                         </button>
-                        <button type="button" wire:click="selectNav('security-privacy')" class="px-[20px] py-[10px] rounded-[5px] bg-jf-gray2 flex flex-row items-center gap-x-[10px] group">
+                        <button type="button" wire:click="selectNav('security-privacy')" class="{{ $selectedTab === 'security-privacy' ? 'bg-jf-yellow active' : '' }} px-[20px] py-[10px] rounded-[5px] bg-jf-gray2 flex flex-row items-center gap-x-[10px] group">
                             <i class="fa-solid fa-lock text-[1.2rem]"></i> <span class="group-hover:underline">Security and Privacy</span> <i class="fa-solid fa-chevron-right ml-auto"></i>
                         </button>
-                        <button type="button" wire:click="selectNav('app-settings')" class="px-[20px] py-[10px] rounded-[5px] bg-jf-gray2 flex flex-row items-center gap-x-[10px]" disabled>
-                            <i class="fa-solid fa-gear text-[1.2rem]"></i>App Settings <i class="fa-solid fa-chevron-right ml-auto"></i>
+                        <button type="button" wire:click="selectNav('app-settings')" class="{{ $selectedTab === 'app-settings' ? 'bg-jf-yellow active' : '' }} px-[20px] py-[10px] rounded-[5px] bg-jf-gray2 flex flex-row items-center gap-x-[10px] group">
+                            <i class="fa-solid fa-gear text-[1.2rem]"></i><span class="group-hover:underline">App Settings</span> <i class="fa-solid fa-chevron-right ml-auto"></i>
                         </button>
                     </div>
                 </div>
@@ -78,6 +78,8 @@
                         <div class="mt-10 sm:mt-0">
                             @livewire('profile.logout-other-browser-sessions-form')
                         </div>
+                        @break
+                    @case('app-settings')
                         @if (Laravel\Jetstream\Jetstream::hasAccountDeletionFeatures())
                             <div class="mt-10 sm:mt-0">
                                 @livewire('profile.delete-user-form')
