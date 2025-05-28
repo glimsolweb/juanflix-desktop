@@ -37,8 +37,10 @@ class OtpService
         $user = Auth::user();
         $dateInterval = now()->diff($user->otp_expires);
         // Return the remaining time of otp
-        if(now()->lessThan($user->otp_expires)){
-            return $dateInterval->minutes . ':' . $dateInterval->seconds;
+        if ($user->otp_expires) {
+            if(now()->lessThan($user->otp_expires)){
+                return $dateInterval->minutes . ':' . $dateInterval->seconds;
+            }
         }
         return 0;
     }
