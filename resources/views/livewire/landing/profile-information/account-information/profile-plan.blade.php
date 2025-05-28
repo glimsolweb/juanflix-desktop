@@ -6,7 +6,7 @@
         </div>
         <div class="w-full my-[20px] border border-jf-white p-[20px] rounded-[5px] hover:border-jf-yellow hover:cursor-pointer
         ">
-            <input class="hidden" type="radio" value="" wire:model="planSelected">
+            {{-- <input class="hidden" type="radio" value="" wire:model="planSelected"> --}}
             <p class="mx-auto md:mx-0 text-jf-black text-[0.8rem] bg-jf-yellow p-[8px_20px] w-max text-center font-bold rounded-full">
                 {{ $plan->name }}
             </p>
