@@ -10,7 +10,7 @@
     </x-slot>
 
     <x-slot name="content">
-        <h3 class="text-lg font-medium text-gray-900">
+        <h3 class="text-lg font-medium text-jf-white">
             @if ($this->enabled)
                 @if ($showingConfirmation)
                     {{ __('Finish enabling two factor authentication.') }}
@@ -22,8 +22,8 @@
             @endif
         </h3>
 
-        <div class="mt-3 max-w-xl text-sm text-jf-gray">
-            <p>
+        <div class="mt-3 max-w-xl text-sm text-jf-white3">
+            <p class="text-jf-white3">
                 {{ __('When two factor authentication is enabled, you will be prompted for a secure, random token during authentication. You may retrieve this token from your phone\'s Google Authenticator application.') }}
             </p>
         </div>

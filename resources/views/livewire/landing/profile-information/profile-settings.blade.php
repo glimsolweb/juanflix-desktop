@@ -71,20 +71,22 @@
                         @break
                     @case('security-privacy')
                         @if (Laravel\Fortify\Features::canManageTwoFactorAuthentication())
-                            <div class="mt-10 sm:mt-0">
+                            <div class="mt-10 sm:mt-0 px-4 py-5">
                                 @livewire('profile.two-factor-authentication-form')
                             </div>
                         @endif
-                        <div class="mt-10 sm:mt-0">
+                        <hr>
+                        <div class="mt-10 sm:mt-0 px-4 py-5">
                             @livewire('profile.logout-other-browser-sessions-form')
                         </div>
                         @break
                     @case('app-settings')
                         @if (Laravel\Jetstream\Jetstream::hasAccountDeletionFeatures())
-                            <div class="mt-10 sm:mt-0">
+                            <div class="mt-10 sm:mt-0 px-4 py-5">
                                 @livewire('profile.delete-user-form')
                             </div>
                         @endif
+                        <hr>
                         @break
                     @default
                         {{-- Default Panel to show --}}
