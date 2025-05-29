@@ -9,19 +9,19 @@ use Browser;
 class WelcomeNewUser extends Component
 {
     public $isMobile;
-    public $isInApp;
+    public $mobileRegx;
 
     public function mount()
     {
         $this->isMobile = false;
-        $this->isInApp = false;
+        $this->mobileRegx = false;
     }
 
     public function render(Request $request)
     {
         // Check user device
         $this->isMobile = Browser::isMobile();
-        $this->isInApp = Browser::isInApp();
+        $this->mobileRegx = Browser::userAgent();
         return view('livewire.landing.welcome-new-user');
     }
 }

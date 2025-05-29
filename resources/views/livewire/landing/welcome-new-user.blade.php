@@ -7,7 +7,7 @@
         <p>You're all set to watch your favorite films. Please go back to the app and sign in.</p>
     </div>
     <div class="flex text-jf-black md:gap-x-[20px] mt-[150px] flex-wrap flex-col md:flex-row gap-[10px] w-full justify-center">
-        @if ($isInApp)
+        @if (preg_match('/Juanflix Mobile App/', $mobileRegx))
             <a href="{{ url()->current() . '/?gobacktoapp=true' }}" class="bg-jf-yellow py-[10px] px-[50px] rounded-[5px] font-bold text-center">CONTINUE</a>
         @elseif ($isMobile)
             <a href="myapp://screens/Static/SignupScreen" class="bg-jf-yellow py-[10px] px-[50px] rounded-[5px] font-bold text-center">CONTINUE</a>
