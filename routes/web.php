@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 use App\Livewire\Landing\Profile\ProfileContent;
 use App\Http\Controllers\User\UserController;
 use App\Livewire\Landing\CancelMembership;
+use App\Livewire\Landing\HomepageAuth;
 use App\Livewire\Landing\Profile\ProfileManage;
 use App\Livewire\Landing\ProfileInformation\ProfileSettings;
 use App\Livewire\Landing\VerifyOtp;
@@ -18,6 +19,9 @@ Route::get('/', Homepage::class)->name('homepage');
 
 // Authenticated Route
 Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified','otpverify'])->group(function () {
+    // Homepage
+    Route::get('/homepage', HomepageAuth::class)->name('homepage-auth');
+
     // Profile
     Route::get('/profile', Profile::class)->name('profile');
     Route::get('/profile-content/{profileID}', ProfileContent::class)->name('profile-content');
@@ -35,10 +39,6 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified','o
 
     // Welcome New User
     Route::get('welcome-user', WelcomeNewUser::class)->name('welcome-user');
-
-    // Route::get('/dashboard', function () {
-    //     return view('dashboard');
-    // })->name('dashboard');
 });
 
 // Test
