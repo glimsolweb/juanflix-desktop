@@ -14,6 +14,13 @@ export default {
         './resources/views/livewire/**/*.blade.php',
     ],
 
+    safelist: [
+        'hidden',
+        'md:block',
+        'block',
+        'flex',
+    ],
+
     theme: {
         extend: {
             fontFamily: {
